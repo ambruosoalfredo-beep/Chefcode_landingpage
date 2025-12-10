@@ -112,9 +112,9 @@ const AboutUs = () => {
             {/* --- TEAM GRID --- */}
             <section className="py-24 bg-white">
                 <div className="container mx-auto px-4 md:px-8">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                    <div className="flex flex-wrap justify-center gap-12 text-center max-w-7xl mx-auto">
                         {team.map((member, i) => (
-                            <div key={i} className="flex flex-col items-center group">
+                            <div key={i} className="flex flex-col items-center group w-full md:w-[30%] min-w-[280px]">
                                 <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-slate-100 shadow-xl group-hover:scale-105 group-hover:border-orange-200 transition-all duration-300">
                                     <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
                                 </div>
