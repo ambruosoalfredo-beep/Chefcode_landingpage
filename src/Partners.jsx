@@ -2,14 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './assets/logo.svg';
-import { Menu, X } from 'lucide-react';
-import Immagine1 from './assets/Immagine1.png';
-import Immagine2 from './assets/Immagine2.jpg';
-import Immagine3 from './assets/Immagine3.jpg';
-import Immagine4 from './assets/Immagine4.jpg';
-import Immagine5 from './assets/Immagine5.jpg';
+import { Menu, X, ExternalLink } from 'lucide-react';
+import Immagine6 from './assets/Immagine6.png';
+import Immagine7 from './assets/Immagine7.png';
+import Immagine8 from './assets/Immagine8.png';
 
-const AboutUs = () => {
+const Partners = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -21,36 +19,27 @@ const AboutUs = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const team = [
+    const partnersFDG = [
         {
-            img: Immagine2,
-            name: "Alfredo Ambruoso",
-            role: "20+yrs kitchen leadership",
-            details: ["Menu & workflow designer", "Food-cost & HACCP specialist"]
+            img: Immagine6,
+            name: "Flavio Di Gregorio",
+            role: "Founder FDG",
+            details: ["University Researcher", "Doctor & Nutritionist"]
         },
         {
-            img: Immagine1,
-            name: "Daniele Paciotti",
-            role: "26+yrs Product Management",
-            details: ["Business Management", "Sales Management"]
-        },
+            img: Immagine7,
+            name: "Maria Teresa Lombardi",
+            role: "Co-Founder FDG",
+            details: ["Biologist Nutritionist"]
+        }
+    ];
+
+    const partnersTeodori = [
         {
-            img: Immagine3,
-            name: "Valerio Cortese",
-            role: "Freelancer",
-            details: ["Multi-disciplinary creative", "UI & branding specialist"]
-        },
-        {
-            img: Immagine4,
-            name: "Kshama Tupe",
-            role: "Senior Business Analyst",
-            details: ["Solution Designer", "Digital Innovation"]
-        },
-        {
-            img: Immagine5,
-            name: "Mariem Daha",
-            role: "Software Engineer",
-            details: ["Web Designer", "AI & Analytic focus"]
+            img: Immagine8,
+            name: "Carla Teodori",
+            role: "Chef & consulente ristorativa",
+            details: ["Formazione 2★ Michelin", "Apertura e gestione ristoranti internazionali"]
         }
     ];
 
@@ -99,6 +88,7 @@ const AboutUs = () => {
                     <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 shadow-2xl p-6 flex flex-col gap-6 animate-in slide-in-from-top-5">
                         <NavLink to="/" mobile>Home</NavLink>
                         <NavLink to="/partners" mobile>Partners</NavLink>
+                        <NavLink to="/about" mobile>About Us</NavLink>
                     </div>
                 )}
             </nav>
@@ -106,16 +96,23 @@ const AboutUs = () => {
             {/* --- HEADER --- */}
             <section className="pt-48 pb-20 bg-slate-900 text-white text-center">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-6xl font-black mb-6">Our Team</h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">The minds behind the kitchen revolution.</p>
+                    <h1 className="text-4xl md:text-6xl font-black mb-6">Our Partners</h1>
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">Collaborating with the best to deliver excellence.</p>
                 </div>
             </section>
 
-            {/* --- TEAM GRID --- */}
-            <section className="py-24 bg-white">
+            {/* --- PARTNER 1: Food & Diet Goal --- */}
+            <section className="py-24 bg-white border-b border-slate-100">
                 <div className="container mx-auto px-4 md:px-8">
-                    <div className="flex flex-wrap justify-center gap-12 text-center max-w-7xl mx-auto">
-                        {team.map((member, i) => (
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Food & Diet Goal</h2>
+                        <a href="https://foodanddietgoal.it/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-lg">
+                            Visit Website <ExternalLink size={18} />
+                        </a>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
+                        {partnersFDG.map((member, i) => (
                             <div key={i} className="flex flex-col items-center group w-full md:w-[30%] min-w-[280px]">
                                 <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-slate-100 shadow-xl group-hover:scale-105 group-hover:border-orange-200 transition-all duration-300">
                                     <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
@@ -132,6 +129,36 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+
+            {/* --- PARTNER 2: Chef Carla Teodori --- */}
+            <section className="py-24 bg-slate-50">
+                <div className="container mx-auto px-4 md:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Chef Professionista</h2>
+                        <a href="http://www.chefteodori.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-lg">
+                            Visit Website <ExternalLink size={18} />
+                        </a>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
+                        {partnersTeodori.map((member, i) => (
+                            <div key={i} className="flex flex-col items-center group w-full md:w-[30%] min-w-[280px]">
+                                <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-slate-100 shadow-xl group-hover:scale-105 group-hover:border-orange-200 transition-all duration-300">
+                                    <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h3>
+                                <div className="text-orange-600 font-bold text-sm uppercase tracking-wide mb-4">{member.role}</div>
+                                <div className="text-slate-500 font-medium leading-relaxed">
+                                    {member.details.map((line, idx) => (
+                                        <div key={idx}>{line}</div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
 
             {/* --- FOOTER --- */}
             <footer className="bg-slate-950 border-t border-slate-900 pt-20 pb-10 text-sm text-slate-500">
@@ -163,8 +190,8 @@ const AboutUs = () => {
                         <div>
                             <h4 className="text-white font-bold mb-6 text-base">Company</h4>
                             <ul className="space-y-4 font-medium">
-                                <li><Link to="/partners" className="hover:text-orange-500 transition-colors">Partners</Link></li>
-                                <li><Link to="/about" className="hover:text-orange-500 transition-colors text-orange-500">About Us</Link></li>
+                                <li><Link to="/partners" className="hover:text-orange-500 transition-colors text-orange-500">Partners</Link></li>
+                                <li><Link to="/about" className="hover:text-orange-500 transition-colors">About Us</Link></li>
                                 <li><a href="#" className="hover:text-orange-500 transition-colors">Contact</a></li>
                                 <li><a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
                             </ul>
@@ -188,4 +215,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default Partners;

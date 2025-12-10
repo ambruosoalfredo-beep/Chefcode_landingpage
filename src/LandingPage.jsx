@@ -79,6 +79,7 @@ const LandingPage = () => {
             <NavLink href="/#features" scrolled={scrolled}>Features</NavLink>
             <NavLink href="/#dr-ai" scrolled={scrolled}>Dr.AI</NavLink>
             <NavLink href="/#testimonials" scrolled={scrolled}>Testimonials</NavLink>
+            <NavLink href="/partners" scrolled={scrolled}>Partners</NavLink>
             <NavLink href="/about" scrolled={scrolled}>About Us</NavLink>
           </div>
 
@@ -106,6 +107,7 @@ const LandingPage = () => {
             <NavLink href="/#how-it-works" mobile>How it Works</NavLink>
             <NavLink href="/#features" mobile>Features</NavLink>
             <NavLink href="/#dr-ai" mobile>Dr.AI</NavLink>
+            <NavLink href="/partners" mobile>Partners</NavLink>
             <NavLink href="/about" mobile>About Us</NavLink>
             <button onClick={scrollToDemo} className="bg-orange-600 text-white w-full py-3 rounded-lg font-bold shadow-lg shadow-orange-900/50">
               Book a Demo
@@ -957,6 +959,7 @@ const LandingPage = () => {
             <div>
               <h4 className="text-white font-bold mb-6 text-base">Company</h4>
               <ul className="space-y-4 font-medium">
+                <li><Link to="/partners" className="hover:text-orange-500 transition-colors">Partners</Link></li>
                 <li><Link to="/about" className="hover:text-orange-500 transition-colors">About Us</Link></li>
                 <li><a href="#" className="hover:text-orange-500 transition-colors">Contact</a></li>
                 <li><a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
