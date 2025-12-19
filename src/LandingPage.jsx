@@ -142,10 +142,24 @@ const LandingPage = () => {
 
       {/* --- HERO SECTION (Hypnotic Dark Theme) --- */}
       <section className="relative pt-40 pb-32 md:pt-52 md:pb-48 overflow-hidden bg-slate-900 border-b border-slate-800">
-        {/* Dynamic Background */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] opacity-60 mix-blend-screen animate-pulse duration-700 pointer-events-none translate-x-1/3 -translate-y-1/4"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none -translate-x-1/4 translate-y-1/4"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            src={videoDemo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-50"
+          />
+          {/* Dark Overlay for contrast */}
+          <div className="absolute inset-0 bg-slate-900/60"></div>
+        </div>
+
+        {/* Dynamic Background Effects */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] opacity-60 mix-blend-screen animate-pulse duration-700 pointer-events-none translate-x-1/3 -translate-y-1/4 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none -translate-x-1/4 translate-y-1/4 z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay z-0"></div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
 
@@ -629,7 +643,7 @@ const LandingPage = () => {
               <div className="w-20 h-20 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-emerald-500/30">
                 <ShieldCheck size={40} className="text-emerald-400" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black mb-6">Food safety. <br />Automatically handled.</h2>
+              <h2 className="text-3xl md:text-5xl font-black mb-6">HACCP - Food safety. <br />Automatically handled.</h2>
               <p className="text-slate-300 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
                 ChefCode tracks every movement in your kitchen with full traceability. From goods-in to production to sale, your HACCP records are created automatically.
               </p>
@@ -687,7 +701,7 @@ const LandingPage = () => {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-black mb-6 text-slate-900">Meet Dr.AI <br /> <span className="text-orange-600">Your menu’s smartest advisor</span></h2>
             <p className="text-xl text-slate-600 font-medium">
-              Dr.AI analyzes your inventory, costs, allergens, and sales to help you create smarter, safer, more profitable menus.
+              Dr.AI turns dietary restrictions into profitable opportunities. It adapts menus or invents dishes on the fly using available stock, making your kitchen the safest choice and your service a powerful magnet for groups.
             </p>
           </div>
 
@@ -719,7 +733,7 @@ const LandingPage = () => {
                 <TrendingUp size={48} strokeWidth={1.5} />
               </div>
               <h4 className="text-2xl font-bold mb-3 text-slate-900">Profit Engineering</h4>
-              <p className="text-slate-500 leading-relaxed font-medium">Optimize menus based on profitability. Recommend alternatives when ingredients run out.</p>
+              <p className="text-slate-500 leading-relaxed font-medium">Optimize menus with the right balance between profitability and dietary or allergen.</p>
             </motion.div>
 
             <motion.div
@@ -734,7 +748,7 @@ const LandingPage = () => {
                 <ShieldCheck size={48} strokeWidth={1.5} />
               </div>
               <h4 className="text-2xl font-bold mb-3 text-slate-900">Allergen Safety</h4>
-              <p className="text-slate-500 leading-relaxed font-medium">Automatically tag allergens & dietary info. Support staff with real-time allergen guidance.</p>
+              <p className="text-slate-500 leading-relaxed font-medium">Automatically tag allergens & dietary info. Support staff with real-time guidance.</p>
             </motion.div>
           </div>
 
@@ -766,40 +780,47 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="flex-1">
-              <h3 className="text-4xl font-black mb-6 text-slate-900">Your Kitchen, Decoded.</h3>
-              <p className="text-slate-600 mb-8 text-lg font-medium">See exactly what’s working - and what’s wasting. From live food costs to supplier insights, ChefCode gives managers and chefs the clarity to act fast.</p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-slate-700 font-bold">
+            <div className="bg-slate-900 rounded-[2.5rem] p-10 shadow-2xl text-white relative overflow-hidden group flex-1">
+              {/* Abstract decorative graphic */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-slate-800 to-slate-900 rounded-bl-full opacity-80 -mr-20 -mt-20 group-hover:scale-105 transition-transform duration-700"></div>
+
+              <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center shadow-inner mb-8 text-orange-400 relative z-10 border border-slate-700">
+                <BarChart3 size={32} />
+              </div>
+
+              <h3 className="text-4xl font-black mb-6 text-white relative z-10">Your Kitchen, Decoded.</h3>
+              <p className="text-slate-400 mb-8 text-lg font-medium relative z-10">See exactly what’s working - and what’s wasting. From live food costs to supplier insights, ChefCode gives managers and chefs the clarity to act fast.</p>
+              <ul className="space-y-3 mb-8 relative z-10">
+                <li className="flex items-center gap-3 text-slate-300 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
                   Real-time food cost (COGS) tracking
                 </li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold">
+                <li className="flex items-center gap-3 text-slate-300 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
                   Waste and prep accuracy reports
                 </li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold">
+                <li className="flex items-center gap-3 text-slate-300 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
                   Supplier and price performance
                 </li>
-                <li className="flex items-center gap-3 text-slate-700 font-bold">
+                <li className="flex items-center gap-3 text-slate-300 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
                   Multi-location visibility
                 </li>
               </ul>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 rounded-3xl bg-orange-50 border border-orange-100 text-center">
-                  <div className="text-4xl font-black text-orange-600 mb-2 tracking-tight">-12%</div>
-                  <div className="text-xs text-slate-500 font-bold uppercase tracking-widest">Food Waste</div>
+              <div className="grid grid-cols-2 gap-6 relative z-10">
+                <div className="p-6 rounded-3xl bg-slate-800/80 border border-slate-700 text-center backdrop-blur-md shadow-lg">
+                  <div className="text-4xl font-black text-orange-400 mb-2 tracking-tight">-12%</div>
+                  <div className="text-xs text-slate-400 font-bold uppercase tracking-widest">Food Waste</div>
                 </div>
-                <div className="p-6 rounded-3xl bg-blue-50 border border-blue-100 text-center">
-                  <div className="text-4xl font-black text-blue-600 mb-2 tracking-tight">+8%</div>
-                  <div className="text-xs text-slate-500 font-bold uppercase tracking-widest">Margin Avg</div>
+                <div className="p-6 rounded-3xl bg-slate-800/80 border border-slate-700 text-center backdrop-blur-md shadow-lg">
+                  <div className="text-4xl font-black text-blue-400 mb-2 tracking-tight">+8%</div>
+                  <div className="text-xs text-slate-400 font-bold uppercase tracking-widest">Margin Avg</div>
                 </div>
               </div>
 
-              <p className="mt-8 text-center text-orange-600 font-bold text-lg italic tracking-wide border-t border-orange-200/50 pt-6 max-w-sm mx-auto opacity-90">
+              <p className="mt-8 text-center text-orange-400 font-bold text-lg italic tracking-wide border-t border-slate-800 pt-6 max-w-sm mx-auto opacity-90 relative z-10">
                 "Numbers made human. Insights made useful."
               </p>
             </div>

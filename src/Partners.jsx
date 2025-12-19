@@ -38,8 +38,8 @@ const Partners = () => {
         {
             img: Immagine8,
             name: "Carla Teodori",
-            role: "Chef & consulente ristorativa",
-            details: ["Formazione 2★ Michelin", "Apertura e gestione ristoranti internazionali"]
+            role: "Chef & Restaurant Consultant",
+            details: ["2★ Michelin Training", "International Restaurant Opening & Management"]
         }
     ];
 

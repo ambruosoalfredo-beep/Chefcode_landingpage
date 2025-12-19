@@ -25,19 +25,19 @@ const AboutUs = () => {
         {
             img: Immagine2,
             name: "Alfredo Ambruoso",
-            role: "20+yrs kitchen leadership",
-            details: ["Menu & workflow designer", "Food-cost & HACCP specialist"]
+            role: "20+ yrs Chef & Kitchen Leader",
+            details: ["Menu Engineering & Workflow Design", "Cost Control, HACCP & Compliance"]
         },
         {
             img: Immagine1,
             name: "Daniele Paciotti",
-            role: "26+yrs Product Management",
-            details: ["Business Management", "Sales Management"]
+            role: "26+ Strategy / Business",
+            details: ["Business & Sales Management", "Product Management"]
         },
         {
             img: Immagine3,
             name: "Valerio Cortese",
-            role: "Freelancer",
+            role: "Film Maker and UI",
             details: ["Multi-disciplinary creative", "UI & branding specialist"]
         },
         {
