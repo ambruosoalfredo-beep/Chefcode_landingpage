@@ -180,7 +180,7 @@ const LandingPage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
           >
-            ChefCode is the <span className="text-white font-semibold">invisible brain</span> of your kitchen. It listens, learns, and optimizes—turning your voice, invoices, and sales data into effortless profit.
+            ChefCode is the <span className="text-white font-semibold">invisible brain</span> of your kitchen. It listens, learns, and optimizes—turning voice, invoices, and sales data into effortless profit.
           </motion.p>
 
           <motion.div
@@ -232,7 +232,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 md:px-8 relative">
           <div className="text-center mb-20 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black mb-6 text-slate-900 tracking-tight">Three Steps. Zero Chaos.</h2>
-            <p className="text-orange-600 font-bold text-lg tracking-wide uppercase opacity-90">Less admin. More time for flavor.</p>
+            <p className="text-orange-600 font-bold text-lg tracking-wide uppercase opacity-90">Less admin. More time for creativity.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 relative">
@@ -298,8 +298,8 @@ const LandingPage = () => {
               </h2>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed font-medium">
                 ChefCode uses a hybrid AI engine.
-                <strong className="text-white bg-slate-800 px-2 py-0.5 rounded mx-1 border border-slate-700">Local AI</strong> for fast, offline voice inputs.
-                <strong className="text-white bg-slate-800 px-2 py-0.5 rounded mx-1 border border-slate-700">Cloud AI</strong> for advanced reasoning.
+                <strong className="text-white bg-slate-800 px-2 py-0.5 rounded mx-1 border border-slate-700">Local AI</strong> &
+                <strong className="text-white bg-slate-800 px-2 py-0.5 rounded mx-1 border border-slate-700">Cloud AI</strong>
               </p>
 
               <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-sm">
@@ -432,7 +432,7 @@ const LandingPage = () => {
                 <FileText size={32} />
               </div>
               <h3 className="text-3xl font-black mb-4 text-slate-900">From paper to data - <br />in seconds.</h3>
-              <h4 className="text-xl font-bold text-orange-600 mb-4">Snap it, scan it, forget it.</h4>
+              <h4 className="text-xl font-bold text-orange-600 mb-4">Snap, Scan, Approve</h4>
               <p className="text-slate-600 mb-6 leading-relaxed font-medium">
                 ChefCode’s OCR reads invoices like a pro - extracting ingredients, prices, and suppliers automatically.
                 Forget manual entry. Forget errors. Just scan and go.
