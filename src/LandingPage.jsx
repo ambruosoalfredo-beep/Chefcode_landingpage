@@ -588,9 +588,9 @@ const LandingPage = () => {
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 leading-tight">Prep lists that <br /><span className="text-orange-600">build themselves.</span></h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed font-medium">
-                ChefCode generates dynamic, real-time production plans based on Sales history, Forecasted demand, and Current inventory.
+                ChefCode generates dynamic production plans based on Sales history, Forecasted trends & events, and Current inventory.
                 <br /><br />
-                <span className="text-slate-800 font-bold">Perfect for daily mise en place, catering, banqueting, and multi-kitchen teams.</span>
+                <span className="text-slate-800 font-bold">The system calculates the prep; the Admin assigns the tasks. Perfect for organized mise en place.</span>
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-slate-700 font-bold">
