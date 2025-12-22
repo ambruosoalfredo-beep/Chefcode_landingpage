@@ -23,13 +23,16 @@ import {
   Leaf,
   Smartphone,
   Search,
-  MessageSquare
+  MessageSquare,
+  User,
+  ChevronDown
 } from 'lucide-react';
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   // Handle scroll for navbar styling
   useEffect(() => {
@@ -84,9 +87,36 @@ const LandingPage = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <button onClick={scrollToDemo} className={`${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-300 hover:text-white'} font-bold text-sm transition-colors`}>
-              Log in
-            </button>
+            {/* User Menu Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/50"
+              >
+                <User size={20} />
+                <ChevronDown size={16} className={`transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isUserMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-2 z-50">
+                  <Link
+                    to="/login"
+                    className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors font-medium"
+                    onClick={() => setIsUserMenuOpen(false)}
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors font-medium"
+                    onClick={() => setIsUserMenuOpen(false)}
+                  >
+                    Register Now
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={scrollToDemo}
               className="bg-white hover:bg-orange-500 hover:text-white text-slate-900 px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:shadow-lg hover:-translate-y-0.5 duration-300"
@@ -109,9 +139,18 @@ const LandingPage = () => {
             <NavLink href="/#dr-ai" mobile>Dr.AI</NavLink>
             <NavLink href="/partners" mobile>Partners</NavLink>
             <NavLink href="/about" mobile>About Us</NavLink>
-            <button onClick={scrollToDemo} className="bg-orange-600 text-white w-full py-3 rounded-lg font-bold shadow-lg shadow-orange-900/50">
-              Book a Demo
-            </button>
+            <div className="border-t border-slate-700 pt-6 flex flex-col gap-3">
+              <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-lg font-bold shadow-lg transition-colors">
+                  Log in
+                </button>
+              </Link>
+              <Link to="/register" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg font-bold shadow-lg shadow-orange-900/50 transition-colors">
+                  Register Now
+                </button>
+              </Link>
+            </div>
           </div>
         )}
       </nav>
@@ -828,7 +867,7 @@ const LandingPage = () => {
           </div>
 
           {/* Integrations Banner Replacement */}
-          <div className="border-t border-slate-100 pt-16 text-center">
+          <div id="integrations" className="border-t border-slate-100 pt-16 text-center">
             <h2 className="text-3xl md:text-5xl font-black mb-6 text-slate-900">Powerful integrations that grow with you.</h2>
             <p className="text-slate-600 mb-12 text-lg font-medium max-w-2xl mx-auto">ChefCode connects with the tools your kitchen already uses.</p>
 
@@ -914,7 +953,7 @@ const LandingPage = () => {
             <div className="md:w-1/2 p-12 md:p-16 bg-slate-900 text-white flex flex-col justify-center relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
               <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10">Ready to Cook Smarter?</h2>
-              <p className="text-slate-300 mb-10 text-lg relative z-10 leading-relaxed">Join hundreds of restaurants using ChefCode to cut waste, save time, and protect profits.</p>
+              <p className="text-slate-300 mb-10 text-lg relative z-10 leading-relaxed">Join our beta program and unlock exclusive early-access advantages while helping shape the future of AI-powered kitchen management.</p>
               <div className="flex items-center gap-3 text-sm text-slate-400 relative z-10 font-bold bg-slate-800 w-fit px-4 py-2 rounded-full">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                 No credit card needed. Just curiosity.
@@ -939,11 +978,11 @@ const LandingPage = () => {
                   <input type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white transition-all font-medium text-slate-900" placeholder="La Trattoria" />
                 </div>
                 <button type="button" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-orange-200 hover:shadow-orange-400/40 transition-all mt-6 transform hover:-translate-y-1">
-                  Book a Demo
+                  Join Beta Testing — Free Early Access
                 </button>
                 <div className="text-center mt-6">
                   <span className="text-slate-400 text-sm font-medium">or</span>
-                  <button className="text-slate-600 font-bold text-sm ml-2 hover:text-orange-600 hover:underline transition-colors">Try ChefCode Free</button>
+                  <button className="text-slate-600 font-bold text-sm ml-2 hover:text-orange-600 hover:underline transition-colors">Watch Platform Walkthrough</button>
                 </div>
               </form>
             </div>
@@ -971,10 +1010,10 @@ const LandingPage = () => {
             <div>
               <h4 className="text-white font-bold mb-6 text-base">Product</h4>
               <ul className="space-y-4 font-medium">
-                <li><a href="#" className="hover:text-orange-500 transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-orange-500 transition-colors">How it Works</a></li>
-                <li><a href="#" className="hover:text-orange-500 transition-colors">Dr.AI</a></li>
-                <li><a href="#" className="hover:text-orange-500 transition-colors">Integrations</a></li>
+                <li><a href="#features" className="hover:text-orange-500 transition-colors">Features</a></li>
+                <li><a href="#how-it-works" className="hover:text-orange-500 transition-colors">How it Works</a></li>
+                <li><a href="#dr-ai" className="hover:text-orange-500 transition-colors">Dr.AI</a></li>
+                <li><a href="#integrations" className="hover:text-orange-500 transition-colors">Integrations</a></li>
               </ul>
             </div>
 
