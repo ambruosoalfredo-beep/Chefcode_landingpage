@@ -313,14 +313,15 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col items-center text-center group"
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-3 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-300 transition-all duration-300 flex flex-col items-center text-center group"
               >
-                <div className="w-24 h-24 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl rotate-3 flex items-center justify-center shadow-2xl shadow-slate-900/30 group-hover:rotate-6 group-hover:from-orange-500 group-hover:to-orange-600 group-hover:shadow-orange-500/40 transition-all duration-500 mb-8 border border-slate-700/30 group-hover:border-orange-400/50 relative overflow-hidden">
+                <div className="w-24 h-24 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl rotate-0 flex items-center justify-center shadow-2xl shadow-slate-900/30 group-hover:scale-110 group-hover:from-orange-500 group-hover:to-orange-600 group-hover:shadow-orange-500/60 group-hover:shadow-2xl transition-all duration-500 mb-8 border border-slate-700/30 group-hover:border-orange-400 relative overflow-hidden">
                   <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {item.icon}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl opacity-0 group-hover:opacity-30 blur-lg transition-opacity duration-500"></div>
+                  <div className="relative z-10">{item.icon}</div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-900">{item.title}</h3>
-                <p className="text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 group-hover:text-orange-600 group-hover:scale-105 transition-all duration-300">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium group-hover:text-slate-700 transition-colors duration-300">{item.desc}</p>
               </motion.div>
             ))}
           </div>
