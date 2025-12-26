@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './assets/logo.svg';
 import { Link } from 'react-router-dom';
-import videoDemo from './assets/ChefCode Emotional video_ENG.mp4';
+import videoDemo from './assets/Chef Final LOW BITRATE.mp4';
 import { motion } from 'framer-motion';
 import {
   ChefHat,
@@ -25,7 +25,8 @@ import {
   Search,
   MessageSquare,
   User,
-  ChevronDown
+  ChevronDown,
+  HelpCircle
 } from 'lucide-react';
 
 const LandingPage = () => {
@@ -33,11 +34,18 @@ const LandingPage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [openFAQ, setOpenFAQ] = useState(null);
 
-  // Handle scroll for navbar styling
+  // Handle scroll for navbar styling and progress bar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Calculate scroll progress
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -66,6 +74,13 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-slate-50/50 font-sans text-slate-800 selection:bg-orange-100 selection:text-orange-900">
 
+      {/* --- SCROLL PROGRESS BAR --- */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-slate-900/90 z-[60]">
+        <div
+          className="h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
       {/* --- NAVBAR --- */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-lg shadow-lg py-3 border-b border-white/5' : 'bg-transparent py-4 md:py-6'}`}>
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
@@ -81,6 +96,7 @@ const LandingPage = () => {
             <NavLink href="/#how-it-works" scrolled={scrolled}>How it Works</NavLink>
             <NavLink href="/#features" scrolled={scrolled}>Features</NavLink>
             <NavLink href="/#dr-ai" scrolled={scrolled}>Dr.AI</NavLink>
+            <NavLink href="/#faq" scrolled={scrolled}>FAQ</NavLink>
             <NavLink href="/#testimonials" scrolled={scrolled}>Testimonials</NavLink>
             <NavLink href="/partners" scrolled={scrolled}>Partners</NavLink>
             <NavLink href="/about" scrolled={scrolled}>About Us</NavLink>
@@ -137,6 +153,7 @@ const LandingPage = () => {
             <NavLink href="/#how-it-works" mobile>How it Works</NavLink>
             <NavLink href="/#features" mobile>Features</NavLink>
             <NavLink href="/#dr-ai" mobile>Dr.AI</NavLink>
+            <NavLink href="/#faq" mobile>FAQ</NavLink>
             <NavLink href="/partners" mobile>Partners</NavLink>
             <NavLink href="/about" mobile>About Us</NavLink>
             <div className="border-t border-slate-700 pt-6 flex flex-col gap-3">
@@ -150,6 +167,9 @@ const LandingPage = () => {
                   Register Now
                 </button>
               </Link>
+              <button onClick={scrollToDemo} className="w-full bg-white hover:bg-orange-50 border-2 border-orange-600 text-orange-600 py-3 rounded-lg font-bold shadow-lg transition-colors">
+                Book a Demo
+              </button>
             </div>
           </div>
         )}
@@ -217,9 +237,14 @@ const LandingPage = () => {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: 0.2
+            }}
             className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-10 text-white tracking-tighter"
           >
             Your AI Sous-Chef <br className="hidden md:block" />
@@ -229,18 +254,28 @@ const LandingPage = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 12,
+              delay: 0.4
+            }}
             className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
           >
             ChefCode is the <span className="text-white font-semibold">invisible brain</span> of your kitchen. It listens, learns, and optimizes—turning voice, invoices, and sales data into effortless profit.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{
+              type: "spring",
+              stiffness: 90,
+              damping: 14,
+              delay: 0.6
+            }}
             className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
           >
             <button onClick={scrollToDemo} className="bg-gradient-to-r from-orange-600 to-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_0_40px_-5px_rgba(249,115,22,0.5)] hover:scale-105 transition-all flex items-center gap-2 group min-w-[240px] justify-center relative overflow-hidden">
@@ -266,13 +301,21 @@ const LandingPage = () => {
               { val: "20%", label: "Food Cost Saved", desc: "Average in 3 months", color: "text-orange-400" },
               { val: "10h", label: "Time/Week Saved", desc: "For Executive Chefs", color: "text-blue-400" },
             ].map((stat, i) => (
-              <div key={i} className="bg-slate-800/30 border border-slate-700/50 p-6 rounded-2xl backdrop-blur-sm flex items-center gap-4 hover:bg-slate-800/50 transition-colors group">
+              <motion.div
+                key={i}
+                className="bg-slate-800/30 border border-slate-700/50 p-6 rounded-2xl backdrop-blur-sm flex items-center gap-4  transition-colors group"
+                whileHover={{
+                  scale: 1.05,
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 17 }
+                }}
+              >
                 <div className={`text-4xl font-black ${stat.color} group-hover:scale-110 transition-transform origin-left`}>{stat.val}</div>
                 <div>
                   <div className="text-white font-bold leading-tight">{stat.label}</div>
                   <div className="text-slate-500 text-xs font-medium uppercase tracking-wide">{stat.desc}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -284,10 +327,16 @@ const LandingPage = () => {
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
         <div className="container mx-auto px-4 md:px-8 relative">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="text-center mb-20 max-w-2xl mx-auto"
+          >
             <h2 className="text-3xl md:text-5xl font-black mb-6 text-slate-900 tracking-tight">Three Steps. Zero Chaos.</h2>
             <p className="text-orange-600 font-bold text-lg tracking-wide uppercase opacity-90">Less admin. More time for creativity.</p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 relative">
             {[
@@ -309,11 +358,21 @@ const LandingPage = () => {
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.2 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:-translate-y-3 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-300 transition-all duration-300 flex flex-col items-center text-center group"
+                transition={{
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 12,
+                  delay: idx * 0.15
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-300 transition-all duration-300 flex flex-col items-center text-center group"
               >
                 <div className="w-24 h-24 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl rotate-0 flex items-center justify-center shadow-2xl shadow-slate-900/30 group-hover:scale-110 group-hover:from-orange-500 group-hover:to-orange-600 group-hover:shadow-orange-500/60 group-hover:shadow-2xl transition-all duration-500 mb-8 border border-slate-700/30 group-hover:border-orange-400 relative overflow-hidden">
                   <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -328,12 +387,16 @@ const LandingPage = () => {
         </div>
       </section>
 
+
+
+
+
       {/* --- HYBRID AI SECTION (Dark & Powerful) --- */}
       <motion.section
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.95, y: 50 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ type: "spring", stiffness: 80, damping: 15, duration: 0.8 }}
         id="features"
         className="py-24 bg-slate-900 rounded-[3rem] mx-4 md:mx-8 my-8 relative overflow-hidden border border-slate-800 shadow-2xl"
       >
@@ -937,6 +1000,95 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* --- FAQ ACCORDION SECTION --- */}
+      <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-slate-600 text-lg font-medium">Everything you need to know about ChefCode</p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {[
+              {
+                question: "How does ChefCode's AI understand my kitchen operations?",
+                answer: "ChefCode uses hybrid AI (Local + Cloud) to learn from your voice commands, invoices, and sales data. The local AI processes sensitive data on your device for privacy, while cloud AI handles complex predictions. Over time, it learns your kitchen's unique patterns, supplier preferences, and operational rhythm."
+              },
+              {
+                question: "What can I do with voice commands?",
+                answer: "Simply speak to log recipes, record inventory, create task lists, or add ingredients. ChefCode's voice AI understands natural kitchen language - no rigid commands needed. It works even in noisy environments and supports multiple languages."
+              },
+              {
+                question: "How does the invoice scanning work?",
+                answer: "Just snap a photo of any invoice with your phone. ChefCode's OCR technology instantly extracts supplier info, items, quantities, and prices - even from handwritten invoices. Everything is automatically categorized and added to your inventory and cost tracking."
+              },
+              {
+                question: "Can ChefCode predict what I'll need?",
+                answer: "Yes! Dr.AI analyzes your sales history, seasonal trends, upcoming events, and current stock to forecast demand. It generates smart production plans and alerts you when stock is running low - before you run out. It even suggests optimal order quantities to minimize waste."
+              },
+              {
+                question: "What makes ChefCode different from spreadsheets?",
+                answer: "ChefCode is intelligent and automated. While spreadsheets require manual data entry and calculations, ChefCode learns, predicts, and updates automatically. It connects voice, invoices, recipes, and sales into one smart system that actually helps you make decisions - not just store data."
+              },
+              {
+                question: "How does the AI handle allergens and dietary restrictions?",
+                answer: "Dr.AI automatically tags all allergens and dietary information from recipes and ingredients. It can instantly check if a dish fits specific dietary needs, suggest safe alternatives using your current stock, and even help you create new dishes on the fly for guests with special requirements."
+              }
+            ].map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  delay: idx * 0.1
+                }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === idx ? null : idx)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
+                      <HelpCircle className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900">{faq.question}</h3>
+                  </div>
+                  <ChevronDown
+                    className={`w-6 h-6 text-slate-400 transition-transform duration-300 shrink-0 ${openFAQ === idx ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openFAQ === idx && (
+                  <div className="px-8 pb-6 pt-2">
+                    <p className="text-slate-600 leading-relaxed pl-16">{faq.answer}</p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-slate-600 mb-4">Still have questions?</p>
+            <a href="#demo-signup" className="text-orange-600 font-bold hover:underline text-lg">
+              Contact us →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* --- CTA FORM --- */}
       {/* --- CTA FORM --- */}
       <section id="demo-signup" className="py-24 bg-white relative overflow-hidden">
@@ -945,10 +1097,10 @@ const LandingPage = () => {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ scale: 0.9, opacity: 0, rotateY: -10 }}
+            whileInView={{ scale: 1, opacity: 1, rotateY: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
             className="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col md:flex-row"
           >
             <div className="md:w-1/2 p-12 md:p-16 bg-slate-900 text-white flex flex-col justify-center relative overflow-hidden">
@@ -967,15 +1119,15 @@ const LandingPage = () => {
             <div className="md:w-1/2 p-12 md:p-16 bg-white">
               <form className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Name</label>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Name <span className="text-orange-600">*</span></label>
                   <input type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white transition-all font-medium text-slate-900" placeholder="Chef Marco" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Email</label>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Email <span className="text-orange-600">*</span></label>
                   <input type="email" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white transition-all font-medium text-slate-900" placeholder="marco@kitchen.com" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Restaurant Name</label>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Restaurant Name <span className="text-orange-600">*</span></label>
                   <input type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white transition-all font-medium text-slate-900" placeholder="La Trattoria" />
                 </div>
                 <button type="button" className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-orange-200 hover:shadow-orange-400/40 transition-all mt-6 transform hover:-translate-y-1">
@@ -1014,6 +1166,7 @@ const LandingPage = () => {
                 <li><a href="#features" className="hover:text-orange-500 transition-colors">Features</a></li>
                 <li><a href="#how-it-works" className="hover:text-orange-500 transition-colors">How it Works</a></li>
                 <li><a href="#dr-ai" className="hover:text-orange-500 transition-colors">Dr.AI</a></li>
+                <li><a href="#faq" className="hover:text-orange-500 transition-colors">FAQ</a></li>
                 <li><a href="#integrations" className="hover:text-orange-500 transition-colors">Integrations</a></li>
               </ul>
             </div>

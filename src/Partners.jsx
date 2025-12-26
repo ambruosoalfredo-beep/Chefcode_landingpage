@@ -134,7 +134,7 @@ const Partners = () => {
             <section className="py-24 bg-slate-50">
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Chef Professionista</h2>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Professional Chef</h2>
                         <a href="http://www.chefteodori.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-lg">
                             Visit Website <ExternalLink size={18} />
                         </a>
