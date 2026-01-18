@@ -94,7 +94,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Link logo to home */}
           <div className="flex items-center gap-2 group cursor-pointer">
-            <Link to="/">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img src={logo} alt="ChefCode" className="h-16 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform" />
             </Link>
           </div>
@@ -932,22 +932,17 @@ const LandingPage = () => {
             <h2 className="text-3xl md:text-5xl font-black mb-4">Built with Chefs. Trusted by Kitchens.</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                text: "ChefCode saved us 5 hours a week and 20% less waste - the AI actually understands our flow.",
-                author: "Marco",
-                role: "Executive Chef"
+                text: "A single platform managing the entire restaurant chain from suppliers to kitchen to customer wellness. ChefCode brings method and traceability to an industry that needs it, creating a common language between culinary and healthcare professionals.",
+                author: "Flavio Di Gregorio",
+                role: "Founder Food & Diet Goal"
               },
               {
-                text: "The voice assistant is pure magic. No more data entry during service.",
-                author: "Sara",
-                role: "F&B Manager"
-              },
-              {
-                text: "We went from chaos to calm. ChefCode keeps everything in sync.",
-                author: "David",
-                role: "Head Chef"
+                text: "ChefCode is a paradigm shift. Helping people make health-conscious dining choices, that's a cultural revolution. The platform's potential with Dr. AI is just beginning to unfold.",
+                author: "Maria Teresa Lombardi",
+                role: "Biologist Nutritionist"
               }
             ].map((t, i) => (
               <div key={i} className="bg-slate-800 p-10 rounded-[2rem] relative border border-slate-700 hover:border-orange-500/30 transition-colors">
@@ -1067,6 +1062,12 @@ const LandingPage = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0, rotateY: -10 }}
             whileInView={{ scale: 1, opacity: 1, rotateY: 0 }}
+            whileHover={{
+              scale: 1.02,
+              rotateY: 2,
+              boxShadow: "0 30px 80px -15px rgba(249, 115, 22, 0.4), 0 0 100px -20px rgba(249, 115, 22, 0.3)",
+              transition: { type: "spring", stiffness: 300, damping: 20 }
+            }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
             className="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col md:flex-row"
