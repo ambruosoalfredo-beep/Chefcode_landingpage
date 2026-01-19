@@ -29,7 +29,7 @@ const Partners = () => {
         {
             img: Immagine7,
             name: "Maria Teresa Lombardi",
-            role: "Co-Founder Food & Diet Goal",
+            role: "Collaborating Nutritionist",
             details: ["Biologist Nutritionist"]
         }
     ];

@@ -90,7 +90,7 @@ const LandingPage = () => {
         />
       </div>
       {/* --- NAVBAR --- */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-lg shadow-lg py-3 border-b border-white/5' : 'bg-transparent py-4 md:py-6'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 backdrop-blur-lg shadow-lg py-3' : 'bg-slate-900 py-4 md:py-6'}`}>
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Link logo to home */}
           <div className="flex items-center gap-2 group cursor-pointer">
@@ -1060,11 +1060,10 @@ const LandingPage = () => {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, rotateY: -10 }}
-            whileInView={{ scale: 1, opacity: 1, rotateY: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
             whileHover={{
               scale: 1.02,
-              rotateY: 2,
               boxShadow: "0 30px 80px -15px rgba(249, 115, 22, 0.4), 0 0 100px -20px rgba(249, 115, 22, 0.3)",
               transition: { type: "spring", stiffness: 300, damping: 20 }
             }}
