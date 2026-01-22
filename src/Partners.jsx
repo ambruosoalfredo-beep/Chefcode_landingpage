@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './assets/logo.svg';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import { Menu, X, ExternalLink, ArrowRight } from 'lucide-react';
 import Immagine6 from './assets/Immagine6.png';
 import Immagine7 from './assets/Immagine7.png';
 import Immagine8 from './assets/Immagine8.png';
@@ -97,7 +97,18 @@ const Partners = () => {
             <section className="pt-48 pb-20 bg-slate-900 text-white text-center">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl md:text-6xl font-black mb-6">Our Partners</h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">Collaborating with the best to deliver excellence.</p>
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8">Collaborating with the best to deliver excellence.</p>
+
+                    {/* Partner CTA */}
+                    <div className="max-w-6xl mx-auto mt-12 p-8 bg-slate-800/50 rounded-2xl border border-slate-700 flex flex-col items-center justify-center gap-6">
+                        <p className="text-lg text-slate-300 leading-relaxed text-center">
+                            <span className="text-orange-500 font-bold">Join the revolution.</span> We're building the future of food tech and looking for visionary partners who share our mission to transform the culinary industry through innovation and sustainability.
+                        </p>
+                        <Link to="/become-partner" className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-orange-500/50 transition-all hover:scale-105">
+                            Become a Partner
+                            <ArrowRight size={20} />
+                        </Link>
+                    </div>
                 </div>
             </section>
 
@@ -106,9 +117,6 @@ const Partners = () => {
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Food & Diet Goal</h2>
-                        <a href="https://foodanddietgoal.it/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-lg">
-                            Visit Website <ExternalLink size={18} />
-                        </a>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
@@ -124,6 +132,11 @@ const Partners = () => {
                                         <div key={idx}>{line}</div>
                                     ))}
                                 </div>
+                                {member.name === "Flavio Di Gregorio" && (
+                                    <a href="https://foodanddietgoal.it/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
+                                        Visit Website <ExternalLink size={16} />
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -135,9 +148,6 @@ const Partners = () => {
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Professional Chef</h2>
-                        <a href="http://www.chefteodori.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-lg">
-                            Visit Website <ExternalLink size={18} />
-                        </a>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
@@ -153,6 +163,11 @@ const Partners = () => {
                                         <div key={idx}>{line}</div>
                                     ))}
                                 </div>
+                                {member.name === "Carla Teodori" && (
+                                    <a href="http://www.chefteodori.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
+                                        Visit Website <ExternalLink size={16} />
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
