@@ -8,6 +8,7 @@ import Partners from './Partners';
 import Register from './Register';
 import Login from './Login';
 import BecomePartner from './BecomePartner';
+import PrivacyPolicy from './PrivacyPolicy';
 import ScrollToTop from './ScrollToTop';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/become-partner" element={<BecomePartner />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

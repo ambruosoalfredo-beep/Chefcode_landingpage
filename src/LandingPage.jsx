@@ -28,7 +28,8 @@ import {
   HelpCircle,
   Stethoscope,
   Carrot,
-  ChefHat
+  ChefHat,
+  Shield
 } from 'lucide-react';
 
 const LandingPage = () => {
@@ -224,6 +225,28 @@ const LandingPage = () => {
             </span>
           </motion.h1>
 
+          {/* AI Act Compliance Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 12,
+              delay: 0.3
+            }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          >
+            <div className="flex items-center gap-3 px-5 py-3 bg-slate-800/60 border border-slate-700 rounded-full backdrop-blur-md hover:bg-slate-800/80 transition-all">
+              <BrainCircuit size={20} className="text-orange-400" />
+              <span className="text-sm text-slate-300 font-bold uppercase tracking-wider">AI-Powered Decision Support</span>
+            </div>
+            <div className="flex items-center gap-3 px-5 py-3 bg-emerald-900/60 border border-emerald-700 rounded-full backdrop-blur-md hover:bg-emerald-900/80 transition-all">
+              <CheckCircle2 size={20} className="text-emerald-400" />
+              <span className="text-sm text-emerald-300 font-bold uppercase tracking-wider">Human-in-Control</span>
+            </div>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -235,7 +258,7 @@ const LandingPage = () => {
             }}
             className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
           >
-            ChefCode is the <span className="text-white font-semibold">invisible brain</span> of your kitchen. It listens, learns, and optimizes—turning voice, invoices, and sales data into effortless profit.
+            ChefCode is your <span className="text-white font-semibold">AI-powered kitchen assistant</span> that suggests data-driven recommendations. It analyzes voice inputs, invoices, and sales data—<span className="text-orange-400 font-semibold">empowering you to make smarter decisions</span> with confidence.
           </motion.p>
 
           <motion.div
@@ -289,13 +312,24 @@ const LandingPage = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Metrics Disclaimer */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="text-slate-500 text-xs mt-6 text-center font-medium"
+          >
+            *Based on pilot customer data. Individual results may vary.
+          </motion.p>
         </div>
       </section>
 
+
       {/* --- HOW IT WORKS (Dark Offset) --- */}
-      <section id="how-it-works" className="py-24 bg-slate-50 relative overflow-hidden">
+      < section id="how-it-works" className="py-24 bg-slate-50 relative overflow-hidden" >
         {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        < div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]" ></div >
 
         <div className="container mx-auto px-4 md:px-8 relative">
           <motion.div
@@ -314,7 +348,7 @@ const LandingPage = () => {
               {
                 icon: <ScanLine className="w-12 h-12 text-white" />,
                 title: "Scan & Capture",
-                desc: "Snap invoices or speak recipes, tasks, and ingredients. ChefCode logs everything instantly."
+                desc: "Snap invoices or dictate recipes, tasks, and ingredients. ChefCode's AI assists in logging everything for your review."
               },
               {
                 icon: <BarChart3 className="w-12 h-12 text-white" />,
@@ -324,7 +358,7 @@ const LandingPage = () => {
               {
                 icon: <Layers className="w-12 h-12 text-white" />,
                 title: "Plan & Produce",
-                desc: "Auto-generated prep lists and recipes perfectly timed to your rhythm."
+                desc: "AI-suggested prep lists and recipes—reviewed and approved by you."
               }
             ].map((item, idx) => (
               <motion.div
@@ -356,14 +390,14 @@ const LandingPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
 
 
 
       {/* --- HYBRID AI SECTION (Dark & Powerful) --- */}
-      <motion.section
+      < motion.section
         initial={{ opacity: 0, scale: 0.95, y: 50 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -409,6 +443,26 @@ const LandingPage = () => {
                     <span className="font-medium text-white">Speak, type, or scan - ChefCode adapts to your workflow.</span>
                   </li>
                 </ul>
+              </div>
+
+              {/* GDPR Voice Privacy Notice */}
+              <div className="mt-8 p-6 bg-slate-800/80 border border-slate-700/50 rounded-2xl backdrop-blur-sm hover:border-emerald-600/50 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield size={20} className="text-emerald-500" />
+                  </div>
+                  <div>
+                    <h5 className="text-white font-bold text-sm mb-2 flex items-center gap-2 flex-wrap">
+                      🔒 Voice Privacy Guarantee
+                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">GDPR COMPLIANT</span>
+                    </h5>
+                    <p className="text-slate-400 text-xs leading-relaxed">
+                      Voice data is processed <strong className="text-white">locally on your device</strong>.
+                      No recordings are stored, transmitted, or used for AI training.
+                      <span className="block mt-2 text-slate-500">Full compliance with EU GDPR Art. 25 (Privacy by Design).</span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -500,10 +554,10 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </motion.section>
+      </motion.section >
 
       {/* --- GRID FEATURES (OCR & POS - More Visual) --- */}
-      <section className="py-24 bg-white">
+      < section className="py-24 bg-white" >
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
 
@@ -523,18 +577,22 @@ const LandingPage = () => {
               <h3 className="text-3xl font-black mb-4 text-slate-900">From paper to data - <br />in seconds.</h3>
               <h4 className="text-xl font-bold text-orange-600 mb-4">Snap, Scan, Approve</h4>
               <p className="text-slate-600 mb-6 leading-relaxed font-medium">
-                ChefCode’s OCR reads invoices like a pro - extracting ingredients, prices, and suppliers automatically.
+                ChefCode's AI-powered OCR analyzes invoices—extracting ingredients, prices, and suppliers for your review and approval.
                 Forget manual entry. Forget errors. Just scan and go.
               </p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                  <span>Instant invoice processing</span>
+                  <span>AI-assisted invoice processing</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                  <span>Automatic cost tracking</span>
+                  <span>AI-assisted cost tracking</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-700 font-bold">
+                  <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
+                  <span>Real-time pricing alerts</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
@@ -624,13 +682,19 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
+
+              {/* GDPR Data Privacy Notice */}
+              <p className="mt-6 text-slate-400 text-xs leading-relaxed text-center">
+                <strong className="text-white">🔒 Data Privacy:</strong> POS data is processed securely and used solely for your business analytics. GDPR-compliant encryption & access controls.
+              </p>
+
               <p className="mt-8 text-orange-400 font-bold text-lg tracking-wide uppercase opacity-90 text-center border-t border-slate-800 pt-6">
                 Your menu finally tells the truth.
               </p>
             </motion.div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* --- PREP & HACCP (Clean Light Layout with Stacking Cards) --- */}
       < section className="py-24 bg-white border-t border-slate-100" >
@@ -675,11 +739,11 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2">
-              <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 leading-tight">Prep lists that <br /><span className="text-orange-600">build themselves.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 leading-tight">AI-suggested prep lists—<br /><span className="text-orange-600">built for you, approved by you.</span></h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed font-medium">
-                ChefCode generates dynamic production plans based on Sales history, Forecasted trends & events, and Current inventory.
+                ChefCode's AI analyzes sales history, forecasted trends & events, and current inventory to suggest dynamic production plans for your approval.
                 <br /><br />
-                <span className="text-slate-800 font-bold">The system calculates the prep; the Admin assigns the tasks. Perfect for organized mise en place.</span>
+                <span className="text-slate-800 font-bold">The AI suggests optimal prep quantities; you review and assign tasks. Perfect for organized mise en place with human oversight.</span>
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3 text-slate-700 font-bold">
@@ -692,7 +756,7 @@ const LandingPage = () => {
                 </li>
                 <li className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                  Auto-deduction of raw items
+                  AI-suggested deduction of raw items
                 </li>
                 <li className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
@@ -700,7 +764,7 @@ const LandingPage = () => {
                 </li>
                 <li className="flex items-center gap-3 text-slate-700 font-bold">
                   <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                  Auto-shopping from stock and sales, approved by you.
+                  AI-recommended shopping lists—approved by you.
                 </li>
               </ul>
               <p className="text-slate-500 font-bold italic border-l-4 border-orange-500 pl-4">
@@ -718,9 +782,9 @@ const LandingPage = () => {
               <div className="w-20 h-20 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-emerald-500/30">
                 <ShieldCheck size={40} className="text-emerald-400" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black mb-6">HACCP - Food safety. <br />Automatically handled.</h2>
+              <h2 className="text-3xl md:text-5xl font-black mb-6">HACCP - Food safety. <br />AI-Assisted Tracking.</h2>
               <p className="text-slate-300 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
-                ChefCode tracks every movement in your kitchen with full traceability. From goods-in to production to sale, your HACCP records are created automatically.
+                ChefCode's AI tracks every movement in your kitchen with full traceability. From goods-in to production to sale, AI-generated HACCP records require your periodic review and approval.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mb-12 max-w-4xl mx-auto">
@@ -738,16 +802,22 @@ const LandingPage = () => {
 
                 {/* Future Feature Badge */}
                 <div className="w-full flex justify-center mt-4">
-                  <div className="px-6 py-3 bg-slate-800/80 border border-slate-700 rounded-2xl backdrop-blur-md flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left hover:border-indigo-500/50 transition-colors group cursor-default">
-                    <div className="bg-indigo-500/20 p-2 rounded-lg text-indigo-400 group-hover:scale-110 transition-transform">
-                      <ShieldCheck size={20} />
-                    </div>
-                    <div>
-                      <div className="text-white font-bold text-sm flex items-center gap-2 justify-center sm:justify-start">
-                        Blockchain-based data integrity
-                        <span className="text-[10px] bg-indigo-500 text-white px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Coming Soon</span>
+                  <div className="px-8 py-4 bg-slate-800/80 border border-slate-700 rounded-2xl backdrop-blur-md hover:border-indigo-500/50 transition-colors group cursor-default max-w-md">
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <div className="bg-indigo-500/20 p-2 rounded-lg text-indigo-400 group-hover:scale-110 transition-transform flex-shrink-0">
+                        <ShieldCheck size={20} />
                       </div>
-                      <div className="text-slate-400 text-xs font-medium">Future feature for tamper-proof food safety records</div>
+                      <div className="text-white font-bold text-sm">
+                        Blockchain-based data integrity
+                      </div>
+                    </div>
+                    <div className="text-slate-400 text-xs font-medium text-center mb-4">
+                      Future feature for tamper-proof food safety records
+                    </div>
+                    <div className="flex justify-center">
+                      <div className="bg-indigo-500 text-white px-6 py-2 rounded-lg font-bold tracking-wider text-xs uppercase shadow-lg shadow-indigo-500/30 min-w-[160px] text-center">
+                        Coming Soon
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -776,8 +846,23 @@ const LandingPage = () => {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-black mb-6 text-slate-900">Meet Dr.AI <br /> <span className="text-orange-600">Your menu’s smartest advisor</span></h2>
             <p className="text-xl text-slate-600 font-medium">
-              Dr.AI turns dietary restrictions into profitable opportunities. It adapts menus or invents dishes on the fly using available stock, making your kitchen the safest choice and your service a powerful magnet for groups.
+              Dr.AI suggests menu adaptations based on dietary restrictions. It recommends dish modifications or new creations using available stock—empowering you to serve every guest safely.
             </p>
+
+            {/* AI Act Transparency Disclaimer */}
+            <div className="max-w-2xl mx-auto mt-8 p-8 bg-gradient-to-br from-slate-50 to-orange-50/30 border border-orange-200/40 rounded-2xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-xl shadow-orange-500/30 hover:scale-105 transition-transform">
+                  <BrainCircuit size={28} className="text-white" strokeWidth={2.5} />
+                </div>
+                <div>
+                  <h5 className="text-slate-900 font-bold text-base mb-2">AI-Powered Decision Support</h5>
+                  <p className="text-slate-600 text-sm leading-relaxed max-w-md mx-auto">
+                    Dr.AI provides intelligent suggestions. <strong className="text-slate-900">All recommendations require your approval</strong> before serving.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -808,7 +893,7 @@ const LandingPage = () => {
                 <TrendingUp size={48} strokeWidth={1.5} />
               </div>
               <h4 className="text-2xl font-bold mb-3 text-slate-900">Profit Engineering</h4>
-              <p className="text-slate-500 leading-relaxed font-medium">Optimize menus with the right balance between profitability and dietary or allergen.</p>
+              <p className="text-slate-500 leading-relaxed font-medium">AI suggests menu optimizations balancing profitability with dietary needs and allergens.</p>
             </motion.div>
 
             <motion.div
@@ -823,18 +908,39 @@ const LandingPage = () => {
                 <ShieldCheck size={48} strokeWidth={1.5} />
               </div>
               <h4 className="text-2xl font-bold mb-3 text-slate-900">Allergen Safety</h4>
-              <p className="text-slate-500 leading-relaxed font-medium">Automatically tag allergens & dietary info. Support staff with real-time guidance.</p>
+              <p className="text-slate-500 leading-relaxed font-medium">AI-assisted allergen tagging & dietary information. Support staff with real-time guidance.</p>
             </motion.div>
+          </div>
+
+          {/* CRITICAL: Allergen Safety Legal Disclaimer */}
+          <div className="mt-12 max-w-3xl mx-auto p-10 bg-gradient-to-br from-slate-50 via-red-50/20 to-orange-50/20 border-2 border-red-200/50 rounded-3xl backdrop-blur-sm shadow-lg hover:shadow-xl transition-all">
+            <div className="flex flex-col items-center text-center gap-6">
+              {/* Icona AI + Shield */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-red-500/20 blur-2xl rounded-full animate-pulse"></div>
+                <div className="relative w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-red-500/40 hover:scale-105 transition-transform">
+                  <ShieldCheck size={36} className="text-white" strokeWidth={2.5} />
+                </div>
+              </div>
+
+              {/* Contenuto */}
+              <div className="max-w-xl">
+                <h5 className="text-slate-900 font-black text-xl mb-4">AI-Assisted Allergen Safety</h5>
+                <p className="text-slate-700 text-base leading-relaxed">
+                  AI helps identify allergens. <strong className="text-red-700">Always verify before serving—human approval required.</strong>
+                </p>
+              </div>
+            </div>
           </div>
 
           <p className="mt-12 text-center text-orange-600 font-bold text-xl italic tracking-wide border-t border-orange-200/50 pt-8 max-w-md mx-auto opacity-90">
             "Menu engineering meets nutritional intelligence."
           </p>
         </div>
-      </section>
+      </section >
 
       {/* --- ECOSYSTEM & ANALYTICS --- */}
-      <section className="py-24 bg-white">
+      < section className="py-24 bg-white" >
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row gap-12 lg:gap-24 mb-24">
             <div className="flex-1">
@@ -847,7 +953,7 @@ const LandingPage = () => {
                   <div className="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-orange-500/10 flex items-center justify-center text-orange-600 group-hover:scale-110 transition-transform duration-300">
                     <ShoppingBasket size={36} strokeWidth={1.5} />
                   </div>
-                  <span className="font-bold text-slate-900 text-xl max-w-[200px] leading-tight">Automated purchasing becomes effortless.</span>
+                  <span className="font-bold text-slate-900 text-xl leading-tight">AI-assisted purchasing with your approval—effortless and controlled.</span>
                 </div>
               </div>
               <p className="mt-8 text-center text-orange-600 font-bold text-lg italic tracking-wide border-t border-orange-200/50 pt-6 max-w-sm mx-auto opacity-90">
@@ -894,6 +1000,11 @@ const LandingPage = () => {
                   <div className="text-xs text-slate-400 font-bold uppercase tracking-widest">Margin Avg</div>
                 </div>
               </div>
+
+              {/* Analytics Disclaimer */}
+              <p className="text-slate-500 text-xs mt-4 text-center font-medium relative z-10">
+                *Average improvements from pilot customers
+              </p>
 
               <p className="mt-8 text-center text-orange-400 font-bold text-lg italic tracking-wide border-t border-slate-800 pt-6 max-w-sm mx-auto opacity-90 relative z-10">
                 "Numbers made human. Insights made useful."
@@ -971,10 +1082,10 @@ const LandingPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* --- FAQ ACCORDION SECTION --- */}
-      <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
+      < section id="faq" className="py-24 bg-slate-50 relative overflow-hidden" >
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -1001,19 +1112,19 @@ const LandingPage = () => {
               },
               {
                 question: "How does the invoice scanning work?",
-                answer: "Just snap a photo of any invoice with your phone. ChefCode's OCR technology instantly extracts supplier info, items, quantities, and prices - even from handwritten invoices. Everything is automatically categorized and added to your inventory and cost tracking."
+                answer: "Just snap a photo of any invoice with your phone. ChefCode's AI-powered OCR extracts supplier info, items, quantities, and prices—even from handwritten invoices. The AI suggests categorization and inventory updates for your review and approval."
               },
               {
                 question: "Can ChefCode predict what I'll need?",
-                answer: "Yes! Dr.AI analyzes your sales history, seasonal trends, upcoming events, and current stock to forecast demand. It generates smart production plans and alerts you when stock is running low - before you run out. It even suggests optimal order quantities to minimize waste."
+                answer: "Yes! Dr.AI analyzes your sales history, seasonal trends, upcoming events, and current stock to forecast demand. It suggests smart production plans for your approval and alerts you when stock is running low—before you run out. It recommends optimal order quantities to minimize waste."
               },
               {
                 question: "What makes ChefCode different from spreadsheets?",
-                answer: "ChefCode is intelligent and automated. While spreadsheets require manual data entry and calculations, ChefCode learns, predicts, and updates automatically. It connects voice, invoices, recipes, and sales into one smart system that actually helps you make decisions - not just store data."
+                answer: "ChefCode is intelligent and AI-assisted. While spreadsheets require manual entry, ChefCode learns from your data, predicts trends, and suggests updates for your approval. It connects voice, invoices, recipes, and sales into one smart system that helps you make better decisions—faster."
               },
               {
                 question: "How does the AI handle allergens and dietary restrictions?",
-                answer: "Dr.AI automatically tags all allergens and dietary information from recipes and ingredients. It can instantly check if a dish fits specific dietary needs, suggest safe alternatives using your current stock, and even help you create new dishes on the fly for guests with special requirements."
+                answer: "Dr.AI assists in identifying allergens and dietary information from recipes and ingredients. It helps verify if a dish fits specific dietary needs and suggests safe alternatives using your current stock. All allergen information requires your verification before serving to guests."
               }
             ].map((faq, idx) => (
               <motion.div
@@ -1060,7 +1171,7 @@ const LandingPage = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* --- CTA FORM --- */}
       {/* --- CTA FORM --- */}
@@ -1188,6 +1299,19 @@ const LandingPage = () => {
                   </div>
                 )}
 
+                {/* GDPR Consent */}
+                <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <input
+                    type="checkbox"
+                    required
+                    className="mt-1 w-4 h-4 text-orange-600 border-slate-300 rounded focus:ring-orange-500"
+                    id="gdpr-consent"
+                  />
+                  <label htmlFor="gdpr-consent" className="text-xs text-slate-600 leading-relaxed">
+                    I agree to ChefCode's <a href="/privacy" className="text-orange-600 font-bold hover:underline">Privacy Policy</a> and consent to the processing of my personal data for demo and contact purposes. <span className="text-orange-600">*</span>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
                   disabled={formStatus.loading}
@@ -1239,7 +1363,7 @@ const LandingPage = () => {
                 <li><Link to="/partners" className="hover:text-orange-500 transition-colors">Partners</Link></li>
                 <li><Link to="/about" className="hover:text-orange-500 transition-colors">About Us</Link></li>
                 <li><a href="#demo-signup" className="hover:text-orange-500 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
+                <li><Link to="/privacy" className="hover:text-orange-500 transition-colors">Privacy Policy</Link></li>
               </ul>
             </div>
 
