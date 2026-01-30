@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './assets/logo.svg';
 import { Link } from 'react-router-dom';
-import videoDemo from './assets/chef-video.mp4';
+import videoDemo from './assets/chef-video.webm';
 import { motion } from 'framer-motion';
 import mockup from './assets/mockup.png';
 import analyticsDashboard from './assets/interfacciaoffy.png';
@@ -121,7 +121,7 @@ const LandingPage = () => {
         />
       </div>
       {/* --- NAVBAR --- */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 backdrop-blur-lg shadow-lg py-3' : 'bg-slate-900 py-4 md:py-6'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 shadow-lg py-3' : 'bg-slate-900 py-4 md:py-6'}`}>
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Link logo to home */}
           <div className="flex items-center gap-2 group cursor-pointer">
@@ -216,8 +216,9 @@ const LandingPage = () => {
         </div>
 
         {/* Dynamic Background Effects */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[120px] opacity-60 mix-blend-screen animate-pulse duration-700 pointer-events-none translate-x-1/3 -translate-y-1/4 z-0"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none -translate-x-1/4 translate-y-1/4 z-0"></div>
+        {/* Dynamic Background Effects - Optimized for FPS */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-600/20 rounded-full blur-[80px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/4 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[60px] opacity-30 pointer-events-none -translate-x-1/4 translate-y-1/4 z-0"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay z-0"></div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
@@ -226,7 +227,7 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-orange-400 text-sm font-bold mb-10 shadow-xl backdrop-blur-md hover:scale-105 transition-transform cursor-default"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-orange-400 text-sm font-bold mb-10 shadow-xl hover:scale-105 transition-transform cursor-default"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -270,7 +271,7 @@ const LandingPage = () => {
             </div>
             <div className="flex items-center gap-3 px-5 py-3 bg-emerald-900/60 border border-emerald-700 rounded-full backdrop-blur-md hover:bg-emerald-900/80 transition-all">
               <CheckCircle2 size={20} className="text-emerald-400" />
-              <span className="text-sm text-emerald-300 font-bold uppercase tracking-wider">Human-in-Control</span>
+              <span className="text-sm text-emerald-300 font-bold uppercase tracking-wider">Human approval required</span>
             </div>
           </motion.div>
 
@@ -283,9 +284,9 @@ const LandingPage = () => {
               damping: 12,
               delay: 0.4
             }}
-            className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
-          >
-            ChefCode is the <span className="text-white font-semibold">invisible brain of your kitchen</span> that suggests data-driven recommendations. It analyzes voice inputs, invoices, and sales data—<span className="text-orange-400 font-semibold">empowering you to make smarter decisions</span> with confidence.
+            className="text-xl md:text-2xl mb-12 text-slate-300 leading-relaxed max-w-3xl mx-auto">
+            ChefCode is the <strong className="text-white">invisible brain</strong> of your kitchen. It listens, learns, and optimizes—turning voice, invoices, and sales data into effortless profit.
+
           </motion.p>
 
           <motion.div
@@ -424,6 +425,71 @@ const LandingPage = () => {
         </div>
       </section >
 
+      {/* --- ANALYTICS SECTION (Full Width - Light Theme) --- */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#475569_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+        {/* Background Effects */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-200/30 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 md:px-8 relative z-10 group">
+          <div className="grid lg:grid-cols-[40%_60%] gap-12 items-center">
+            {/* Left Col: Text & Content */}
+            <div className="text-left flex flex-col items-start">
+              <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center shadow-sm mb-8 text-orange-600 border border-orange-100">
+                <BarChart3 size={32} />
+              </div>
+              <h3 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 leading-tight">Your Kitchen,<br /> <span className="text-orange-500">Decoded.</span></h3>
+              <p className="text-slate-600 mb-8 text-lg font-medium max-w-xl">
+                See exactly what’s working - and what’s wasting. From live food costs to supplier insights, ChefCode gives you the clarity to act fast.
+              </p>
+
+              <ul className="flex flex-col gap-4 mb-10 items-start">
+                {[
+                  'Real-time food cost (COGS)',
+                  'Waste & prep reports',
+                  'Supplier performance',
+                  'Multi-location visibility'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-slate-700 font-bold text-lg group/item justify-start">
+                    <CheckCircle2 size={20} className="text-emerald-500 shrink-0 group-hover/item:scale-110 transition-transform" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              {/* KPI Cards Mini */}
+              <div className="flex gap-8 justify-start w-full">
+                <div className="bg-gradient-to-br from-white to-orange-50 border border-orange-100 p-6 md:p-8 rounded-3xl shadow-xl shadow-orange-500/10 hover:-translate-y-1 transition-transform min-w-[140px]">
+                  <div className="text-4xl md:text-5xl font-black text-orange-500 mb-2">-12%</div>
+                  <div className="text-xs text-orange-600/80 font-bold uppercase tracking-wider">Food Waste</div>
+                </div>
+                <div className="bg-gradient-to-br from-white to-emerald-50 border border-emerald-100 p-6 md:p-8 rounded-3xl shadow-xl shadow-emerald-500/10 hover:-translate-y-1 transition-transform min-w-[140px]">
+                  <div className="text-4xl md:text-5xl font-black text-emerald-500 mb-2">+8%</div>
+                  <div className="text-xs text-emerald-600/80 font-bold uppercase tracking-wider">Margin Avg</div>
+                </div>
+              </div>
+
+              <p className="text-slate-500 text-xs mt-6 font-medium opacity-70">*Average improvements</p>
+            </div>
+
+            {/* Right Col: Image Mockup */}
+            <div className="relative group/image">
+              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/10 to-blue-500/10 rounded-3xl blur-2xl transform rotate-3 scale-95 opacity-0 group-hover/image:opacity-100 transition-opacity duration-700"></div>
+              <img
+                src={mockup}
+                alt="ChefCode Analytics Dashboard"
+                className="relative transform scale-100 lg:scale-[1.2] lg:translate-x-16 lg:translate-y-4 group-hover/image:scale-105 lg:group-hover/image:scale-[1.25] transition-transform duration-500 w-full object-contain drop-shadow-2xl"
+              />
+              <p className="mt-20 text-center text-orange-600 font-bold text-2xl italic tracking-wide opacity-90">
+                "Numbers made human. Insights made useful."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
 
 
@@ -435,7 +501,7 @@ const LandingPage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 md:px-8 mb-24 mt-12"
+        className="container mx-auto px-4 md:px-8 mb-24 mt-12 hidden"
       >
         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 group">
           {/* Background Gradient */}
@@ -457,7 +523,7 @@ const LandingPage = () => {
             {/* Image Touching Edges (Full Width) */}
             <div className="w-full px-0">
               <img
-                src={mockup}
+                src={analyticsDashboard}
                 alt="ChefCode Dashboard Interface"
                 className="w-full h-auto shadow-2xl transform group-hover:scale-[1.01] transition-transform duration-700 hover:shadow-orange-500/10"
               />
@@ -781,7 +847,7 @@ const LandingPage = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 text-lg">Morning Prep</h4>
-                      <p className="text-xs text-slate-500 font-bold uppercase tracking-wide">Forecast: 120 Covers</p>
+
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -850,11 +916,10 @@ const LandingPage = () => {
       <section className="bg-white px-4 md:px-8 py-24">
         <div className="bg-slate-900 rounded-[3rem] p-10 md:p-20 text-white text-center relative overflow-hidden shadow-2xl max-w-7xl mx-auto border border-slate-800">
           {/* Background glow */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-emerald-900/20 rounded-full blur-3xl -z-10 -mt-40"></div>
-
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-orange-900/20 rounded-full blur-3xl -z-10 -mt-40"></div>
           <div className="max-w-3xl mx-auto relative z-10">
-            <div className="w-20 h-20 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-emerald-500/30">
-              <ShieldCheck size={40} className="text-emerald-400" />
+            <div className="w-20 h-20 bg-orange-500/10 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-orange-500/30">
+              <ShieldCheck size={40} className="text-orange-400" />
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-6">HACCP - Food safety. <br />AI-Assisted Tracking.</h2>
             <p className="text-slate-300 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
@@ -883,12 +948,12 @@ const LandingPage = () => {
               </Link>
             </div>
 
-            <p className="mt-12 text-center text-white font-bold text-xl italic tracking-wide border-t border-emerald-500/30 pt-8 max-w-md mx-auto opacity-90">
+            <p className="mt-12 text-center text-white font-bold text-xl italic tracking-wide border-t border-orange-500/30 pt-8 max-w-md mx-auto opacity-90">
               "Compliance without the clipboard."
             </p>
 
             <div className="mt-10 flex justify-center">
-              <Link to="/haccp" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg hover:shadow-emerald-500/25">
+              <Link to="/haccp" className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 shadow-lg hover:shadow-orange-500/25">
                 Discover HACCP Features <ArrowRight size={20} />
               </Link>
             </div>
@@ -998,68 +1063,7 @@ const LandingPage = () => {
 
 
       {/* --- ANALYTICS SECTION --- */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl text-white relative overflow-hidden group max-w-7xl mx-auto">
-            {/* Background Effects */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-              {/* Left Col: Text & Content */}
-              <div className="text-center flex flex-col items-center">
-                <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center shadow-inner mb-8 text-orange-400 border border-slate-700">
-                  <BarChart3 size={32} />
-                </div>
-                <h3 className="text-4xl md:text-5xl font-black mb-6 text-white leading-tight">Your Kitchen,<br /> <span className="text-blue-400">Decoded.</span></h3>
-                <p className="text-slate-400 mb-8 text-lg font-medium max-w-xl">
-                  See exactly what’s working - and what’s wasting. From live food costs to supplier insights, ChefCode gives you the clarity to act fast.
-                </p>
-
-                <ul className="flex flex-col gap-4 mb-10 items-center">
-                  {[
-                    'Real-time food cost (COGS)',
-                    'Waste & prep reports',
-                    'Supplier performance',
-                    'Multi-location visibility'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-slate-300 font-bold text-lg group/item justify-center">
-                      <CheckCircle2 size={20} className="text-emerald-500 shrink-0 group-hover/item:scale-110 transition-transform" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* KPI Cards Mini */}
-                <div className="flex gap-8 justify-center w-full">
-                  <div className="bg-slate-800/80 border border-slate-700/50 p-6 md:p-8 rounded-3xl backdrop-blur-md hover:-translate-y-1 transition-transform min-w-[140px]">
-                    <div className="text-4xl md:text-5xl font-black text-orange-400 mb-2">-12%</div>
-                    <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Food Waste</div>
-                  </div>
-                  <div className="bg-slate-800/80 border border-slate-700/50 p-6 md:p-8 rounded-3xl backdrop-blur-md hover:-translate-y-1 transition-transform min-w-[140px]">
-                    <div className="text-4xl md:text-5xl font-black text-blue-400 mb-2">+8%</div>
-                    <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Margin Avg</div>
-                  </div>
-                </div>
-
-                <p className="text-slate-500 text-xs mt-6 font-medium opacity-70">*Average improvements</p>
-              </div>
-
-              {/* Right Col: Image Mockup */}
-              <div className="relative group/image">
-                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-blue-500/20 rounded-3xl blur-2xl transform rotate-3 scale-95 opacity-0 group-hover/image:opacity-100 transition-opacity duration-700"></div>
-                <img
-                  src={analyticsDashboard}
-                  alt="ChefCode Analytics Dashboard"
-                  className="relative transform scale-100 group-hover/image:scale-105 transition-transform duration-500 w-full object-contain drop-shadow-2xl"
-                />
-                <p className="mt-6 text-center text-orange-400 font-bold text-lg italic tracking-wide opacity-90">
-                  "Numbers made human. Insights made useful."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       {/* --- INTEGRATIONS SECTION --- */}
@@ -1373,7 +1377,7 @@ const LandingPage = () => {
                   id="gdpr-consent"
                 />
                 <label htmlFor="gdpr-consent" className="text-xs text-slate-600 leading-relaxed">
-                  I agree to ChefCode's <a href="/privacy" className="text-orange-600 font-bold hover:underline">Privacy Policy</a> and consent to the processing of my personal data for demo and contact purposes. <span className="text-orange-600">*</span>
+                  I agree to ChefCode's <Link to="/privacy" className="text-orange-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</Link> and consent to the processing of my personal data for demo and contact purposes. <span className="text-orange-600">*</span>
                 </label>
               </div>
 

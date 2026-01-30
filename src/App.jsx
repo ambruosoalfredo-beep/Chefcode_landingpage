@@ -12,6 +12,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import ComingSoonPage from './ComingSoonPage';
 import HaccpPage from './HaccpPage';
 import ScrollToTop from './ScrollToTop';
+import JoinUs from './JoinUs';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/haccp" element={<HaccpPage />} />
+        <Route path="/join-us" element={<JoinUs />} />
       </Routes>
     </Router>
   );

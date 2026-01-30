@@ -142,6 +142,23 @@ const AboutUs = () => {
                 </div>
             </section>
 
+
+
+            {/* --- JOIN US CTA --- */}
+            <section className="py-24 bg-slate-900 border-t border-slate-800 text-center">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Join the Revolution</h2>
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12">
+                        We are building the intelligence that will run tomorrow's kitchens. Ready to leave your mark?
+                    </p>
+                    <Link to="/join-us">
+                        <button className="bg-orange-600 hover:bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-orange-500/30 transition-all hover:scale-105">
+                            Join the Team
+                        </button>
+                    </Link>
+                </div>
+            </section>
+
             {/* --- FOOTER --- */}
             <footer className="bg-slate-950 border-t border-slate-900 pt-20 pb-10 text-sm text-slate-500">
                 <div className="container mx-auto px-4 md:px-8">
@@ -193,7 +210,7 @@ const AboutUs = () => {
                     </div>
                 </div>
             </footer >
-        </div>
+        </div >
     );
 };
 
