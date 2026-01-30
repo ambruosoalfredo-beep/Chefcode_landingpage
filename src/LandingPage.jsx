@@ -500,14 +500,14 @@ const LandingPage = () => {
                 key={animationKey}
                 src={mockup}
                 alt="ChefCode Analytics Dashboard Animation"
-                className={`absolute inset-0 z-20 transform scale-100 lg:scale-[1.15] group-hover/image:scale-105 lg:group-hover/image:scale-[1.2] transition-transform duration-500 w-full h-full object-contain ${analyticsAnimationDone ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                className={`absolute inset-0 z-20 transform scale-100 lg:scale-[1.15] group-hover/image:scale-105 lg:group-hover/image:scale-[1.2] transition-transform duration-500 w-full h-full object-contain ${analyticsAnimationDone ? 'invisible' : 'visible'}`}
               />
 
               {/* Static PNG (Layout Anchor) */}
               <img
                 src={mockupStop}
                 alt="ChefCode Analytics Dashboard Static"
-                className={`relative z-10 transform scale-100 lg:scale-[1.15] group-hover/image:scale-105 lg:group-hover/image:scale-[1.2] transition-transform duration-500 w-full object-contain ${analyticsAnimationDone ? 'opacity-100' : 'opacity-0'}`}
+                className={`relative z-10 transform scale-100 lg:scale-[1.15] group-hover/image:scale-105 lg:group-hover/image:scale-[1.2] transition-transform duration-500 w-full object-contain ${analyticsAnimationDone ? 'visible' : 'invisible'}`}
               />
 
               <p className="mt-20 text-center text-orange-600 font-bold text-2xl italic tracking-wide opacity-90">
