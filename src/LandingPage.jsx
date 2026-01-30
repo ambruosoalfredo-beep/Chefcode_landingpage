@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import videoDemo from './assets/chef-video.webm';
 import { motion } from 'framer-motion';
 import mockup from './assets/mockup.png';
+
 import analyticsDashboard from './assets/interfacciaoffy.png';
 import {
   Mic,
@@ -480,7 +481,7 @@ const LandingPage = () => {
               <img
                 src={mockup}
                 alt="ChefCode Analytics Dashboard"
-                className="relative transform scale-100 lg:scale-[1.2] lg:translate-x-16 lg:translate-y-4 group-hover/image:scale-105 lg:group-hover/image:scale-[1.25] transition-transform duration-500 w-full object-contain drop-shadow-2xl"
+                className="relative transform scale-100 lg:scale-[1.15] group-hover/image:scale-105 lg:group-hover/image:scale-[1.2] transition-transform duration-500 w-full object-contain drop-shadow-2xl"
               />
               <p className="mt-20 text-center text-orange-600 font-bold text-2xl italic tracking-wide opacity-90">
                 "Numbers made human. Insights made useful."
