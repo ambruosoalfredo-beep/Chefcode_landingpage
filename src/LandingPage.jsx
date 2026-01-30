@@ -1405,7 +1405,7 @@ const LandingPage = () => {
                   id="gdpr-consent"
                 />
                 <label htmlFor="gdpr-consent" className="text-xs text-slate-600 leading-relaxed">
-                  I agree to ChefCode's <Link to="/privacy" className="text-orange-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</Link> and consent to the processing of my personal data for demo and contact purposes. <span className="text-orange-600">*</span>
+                  I agree to ChefCode's <Link to="/privacy" className="text-orange-600 font-bold hover:underline">Privacy Policy</Link> and consent to the processing of my personal data for demo and contact purposes. <span className="text-orange-600">*</span>
                 </label>
               </div>
 
