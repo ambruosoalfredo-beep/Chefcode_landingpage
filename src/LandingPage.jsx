@@ -495,7 +495,7 @@ const LandingPage = () => {
             <motion.div
               className="relative group/image cursor-pointer"
               onViewportEnter={startAnimationSequence}
-              onMouseEnter={startAnimationSequence}
+
               viewport={{ once: true }}
             >
 
