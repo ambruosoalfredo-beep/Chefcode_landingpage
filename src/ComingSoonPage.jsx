@@ -7,7 +7,7 @@ const ComingSoonPage = () => {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-orange-500/30">
             {/* Navbar - Dark for consistency with brand identity */}
-            <nav className="fixed top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10">
+            <nav className="fixed top-0 w-full px-6 md:px-8 flex justify-between items-center z-50 bg-slate-900 shadow-lg py-4 md:py-6">
                 <Link to="/" className="flex items-center gap-2 group">
                     <div className="bg-slate-800 p-2 rounded-xl group-hover:bg-slate-700 transition-colors border border-slate-700 hover:border-slate-500">
                         <ArrowLeft size={20} className="text-slate-400 group-hover:text-white transition-colors" />
