@@ -32,10 +32,10 @@ const ComingSoonPage = () => {
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
+                <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
 
                     {/* Marketplace Section - Light Card */}
-                    <div className="bg-white rounded-[2.5rem] p-10 md:p-12 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col h-full group overflow-hidden relative">
+                    <div className="bg-white rounded-[2.5rem] p-10 md:p-12 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col items-center text-center h-full group overflow-hidden relative">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
                         <div className="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center text-blue-600 mb-8 border border-blue-100 group-hover:scale-110 transition-transform duration-300 relative z-10 shadow-sm">
@@ -44,56 +44,29 @@ const ComingSoonPage = () => {
                         <h2 className="text-3xl font-black mb-4 text-slate-900 relative z-10">Supplier Marketplace</h2>
                         <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow relative z-10">
                             <strong className="text-slate-900 block mb-2">A direct bridge between restaurants and suppliers.</strong>
-                            Order ingredients in real time, sync prices automatically, and keep inventory aligned without manual work. ChefCode turns purchasing into a smart, connected workflow.
+                            ChefCode Marketplace helps restaurants buy together, reduce costs, and eliminate waste. Powered by AI-driven demand aggregation and certified suppliers. Smarter procurement, better margins, zero complexity. Order ingredients in real time, sync prices automatically, and keep inventory aligned without manual work. ChefCode turns purchasing into a smart, connected workflow.
                         </p>
 
                         <ul className="space-y-3 mt-auto relative z-10">
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-blue-500 shrink-0" />
                                 <span>Real-time price synchronization</span>
                             </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-blue-500 shrink-0" />
                                 <span>Automated restocking suggestions</span>
                             </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-blue-500 shrink-0" />
                                 <span>Inventory-linked purchasing</span>
                             </li>
                         </ul>
                     </div>
 
-                    {/* Partner Integration Section - Light Card */}
-                    <div className="bg-white rounded-[2.5rem] p-10 md:p-12 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col h-full group overflow-hidden relative">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
-                        <div className="w-20 h-20 bg-emerald-50 rounded-3xl flex items-center justify-center text-emerald-600 mb-8 border border-emerald-100 group-hover:scale-110 transition-transform duration-300 relative z-10 shadow-sm">
-                            <Handshake size={40} />
-                        </div>
-                        <h2 className="text-3xl font-black mb-4 text-slate-900 relative z-10">Partner Integrations</h2>
-                        <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow relative z-10">
-                            <strong className="text-slate-900 block mb-2">One kitchen. One data layer.</strong>
-                            ChefCode connects with POS systems, ERPs, and technology partners to create a unified operating system for modern kitchens.
-                        </p>
-
-                        <ul className="space-y-3 mt-auto relative z-10">
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
-                                <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                                <span>Seamless POS & ERP connections</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
-                                <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                                <span>Unified data ecosystem</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
-                                <CheckCircle2 size={20} className="text-emerald-500 shrink-0" />
-                                <span>Scalable API-first architecture</span>
-                            </li>
-                        </ul>
-                    </div>
 
                     {/* Blockchain Integrity Section - Light Card */}
-                    <div className="bg-white rounded-[2.5rem] p-10 md:p-12 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col h-full group overflow-hidden relative">
+                    <div className="bg-white rounded-[2.5rem] p-10 md:p-12 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col items-center text-center h-full group overflow-hidden relative">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
                         <div className="w-20 h-20 bg-orange-50 rounded-3xl flex items-center justify-center text-orange-600 mb-8 border border-orange-100 group-hover:scale-110 transition-transform duration-300 relative z-10 shadow-sm">
@@ -102,19 +75,19 @@ const ComingSoonPage = () => {
                         <h2 className="text-3xl font-black mb-4 text-slate-900 relative z-10">Blockchain Integrity</h2>
                         <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow relative z-10">
                             <strong className="text-slate-900 block mb-2">Trust built into every ingredient.</strong>
-                            ChefCode is preparing blockchain-based traceability to verify provenance, quality, and compliance across the supply chain.
+                            We’re adding a blockchain-based Integrity Layer to strengthen trust across the ChefCode ecosystem—restaurants and suppliers. It will make certifications and lot-level traceability verifiable end-to-end, supporting a more transparent, compliant supply chain. Supplier visibility stays aggregated and anonymized, so trust scales without exposing restaurant-level data.
                         </p>
 
                         <ul className="space-y-3 mt-auto relative z-10">
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-orange-500 shrink-0" />
                                 <span>Verified ingredient provenance</span>
                             </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-orange-500 shrink-0" />
                                 <span>Tamper-proof records</span>
                             </li>
-                            <li className="flex items-center gap-3 text-slate-700 font-bold">
+                            <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-orange-500 shrink-0" />
                                 <span>End-to-end supply transparency</span>
                             </li>

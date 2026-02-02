@@ -98,12 +98,71 @@ const LandingPage = () => {
     setIsMenuOpen(false);
   };
 
+  const [activeSection, setActiveSection] = useState('');
+  const [indicatorProps, setIndicatorProps] = useState({ left: 0, width: 0, opacity: 0 });
+
+  // Update Top Bar Position based on active section
+  useEffect(() => {
+    const updateIndicator = () => {
+      const activeElement = document.getElementById(`nav-link-${activeSection}`);
+      if (activeElement) {
+        const rect = activeElement.getBoundingClientRect();
+        setIndicatorProps({
+          left: rect.left,
+          width: rect.width,
+          opacity: 1
+        });
+      } else {
+        // If no section active or active section not in menu (e.g. hero), hide or reset
+        setIndicatorProps(prev => ({ ...prev, opacity: 0 }));
+      }
+    };
+
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [activeSection]);
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-20% 0px -20% 0px" }
+    );
+
+    const sections = ['how-it-works', 'features', 'dr-ai', 'testimonials', 'faq', 'demo-signup'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const NavLink = ({ href, children, scrolled, mobile }) => {
-    // Determine if it's a direct internal route (ex: "/about") vs an anchor link (ex: "/#features")
-    // If it starts with / and has NO hash, use Link. Otherwise use a tag.
+    const sectionId = href.includes('#') ? href.split('#')[1] : '';
+    const isActive = sectionId === activeSection && activeSection !== '';
     const isInternalRoute = href.startsWith('/') && !href.includes('#');
 
-    const baseClasses = `${mobile ? 'text-lg text-slate-300' : 'text-sm'} ${scrolled || mobile ? 'text-slate-300 hover:text-white' : 'text-slate-300 hover:text-white'} font-medium transition-colors duration-200 tracking-wide`;
+    let textColor = scrolled || mobile ? 'text-slate-300' : 'text-slate-300';
+    if (isActive) textColor = "text-orange-500 font-bold drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]";
+
+    const baseClasses = `${mobile ? 'text-lg' : 'text-sm'} ${textColor} hover:text-white font-medium transition-all duration-300 tracking-wide relative`;
+
+    // ID for Top Bar tracking
+    const navLinkId = sectionId ? `nav-link-${sectionId}` : undefined;
+
+    const content = (
+      <>
+        {children}
+      </>
+    );
 
     if (isInternalRoute) {
       return (
@@ -112,18 +171,19 @@ const LandingPage = () => {
           className={baseClasses}
           onClick={() => setIsMenuOpen(false)}
         >
-          {children}
+          {content}
         </Link>
       );
     }
 
     return (
       <a
+        id={navLinkId}
         href={href}
         className={baseClasses}
         onClick={() => setIsMenuOpen(false)}
       >
-        {children}
+        {content}
       </a>
     );
   };
@@ -131,13 +191,18 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-slate-50/50 font-sans text-slate-800 selection:bg-orange-100 selection:text-orange-900">
 
-      {/* --- SCROLL PROGRESS BAR --- */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-slate-900/90 z-[60]">
+      {/* --- SYNCHRONIZED TOP BAR INDICATOR --- */}
+      <div className="fixed top-0 left-0 w-full h-1 z-[60] pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+          className="h-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.8)] transition-all duration-300 ease-out rounded-full"
+          style={{
+            transform: `translateX(${indicatorProps.left}px)`,
+            width: `${indicatorProps.width}px`,
+            opacity: indicatorProps.opacity
+          }}
         />
       </div>
+
       {/* --- NAVBAR --- */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 shadow-lg py-3' : 'bg-slate-900 py-4 md:py-6'}`}>
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
@@ -161,12 +226,14 @@ const LandingPage = () => {
 
           <div className="hidden md:flex items-center gap-4">
             <button
+              id="nav-link-demo-signup"
               onClick={scrollToDemo}
-              className="bg-white hover:bg-orange-500 hover:text-white text-slate-900 px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:shadow-lg hover:-translate-y-0.5 duration-300"
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:shadow-lg hover:-translate-y-0.5 duration-300 ${activeSection === 'demo-signup' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/50 scale-105' : 'bg-white hover:bg-orange-500 hover:text-white text-slate-900'}`}
             >
               Book a Demo
             </button>
           </div>
+
 
           {/* Mobile Toggle */}
           <button className="md:hidden p-2 text-white hover:text-orange-500 transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -1109,8 +1176,9 @@ const LandingPage = () => {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-slate-900">Powerful integrations<br /> that grow with you.</h2>
-          <p className="text-slate-600 mb-16 text-lg max-w-2xl mx-auto">
-            ChefCode connects with the tools your kitchen already uses.
+          <p className="text-slate-600 mb-16 text-lg max-w-3xl mx-auto">
+            <strong className="block text-slate-900 mb-2">One kitchen. One data layer.</strong>
+            ChefCode connects with POS systems, ERPs, and technology partners to create a unified operating system for modern kitchens.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -1134,7 +1202,7 @@ const LandingPage = () => {
               <div className="w-24 h-24 bg-white/80 backdrop-blur-md rounded-3xl mb-6 flex items-center justify-center text-orange-500 shadow-sm border border-orange-100 group-hover:scale-110 transition-transform duration-300 relative z-10">
                 <Share2 size={48} strokeWidth={1.5} />
               </div>
-              <span className="font-bold text-slate-800 text-xl transition-colors text-center relative z-10">Supplier & Partner Integration</span>
+              <span className="font-bold text-slate-800 text-xl transition-colors text-center relative z-10">Supplier & Blockchain Integration</span>
               <div className="mt-6 bg-white border border-orange-200 text-orange-600 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-sm group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all z-20">
                 View Coming Soon Feature <ArrowRight size={14} />
               </div>
@@ -1278,18 +1346,37 @@ const LandingPage = () => {
       </section >
 
       {/* --- COMING SOON TEASER --- */}
-      < section className="py-24 bg-slate-900 text-center relative overflow-hidden" >
+      <section className="py-24 bg-slate-900 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Building the Future Kitchen</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto mb-12 text-lg">
-            Explore our roadmap including HACCP automation, Blockchain integrity, and the Supplier Marketplace.
+          <p className="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
+            Explore our <span className="text-white font-bold">future features</span> including HACCP automation, Blockchain integrity, and the Supplier Marketplace.
           </p>
+
+          {/* Feature Badges - Visual but Compact */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="bg-slate-800/80 backdrop-blur border border-slate-700 px-6 py-3 rounded-2xl flex items-center gap-3 shadow-lg hover:border-blue-500/50 transition-colors">
+              <ClipboardCheck className="text-blue-500 shrink-0" size={20} />
+              <span className="font-bold text-slate-200 text-sm md:text-base">HACCP Automation</span>
+            </div>
+            <div className="bg-slate-800/80 backdrop-blur border border-slate-700 px-6 py-3 rounded-2xl flex items-center gap-3 shadow-lg hover:border-emerald-500/50 transition-colors">
+              <ShieldCheck className="text-emerald-500 shrink-0" size={20} />
+              <span className="font-bold text-slate-200 text-sm md:text-base">Blockchain Integrity</span>
+            </div>
+            <div className="bg-slate-800/80 backdrop-blur border border-slate-700 px-6 py-3 rounded-2xl flex items-center gap-3 shadow-lg hover:border-orange-500/50 transition-colors">
+              <ShoppingBasket className="text-orange-500 shrink-0" size={20} />
+              <span className="font-bold text-slate-200 text-sm md:text-base">Supplier Marketplace</span>
+            </div>
+          </div>
+
           <Link to="/coming-soon" className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-xl hover:shadow-blue-500/25">
             View Coming Soon Features <ArrowRight size={20} />
           </Link>
         </div>
-      </section >
+      </section>
 
 
       <section id="demo-signup" className="py-24 bg-slate-50 relative">
