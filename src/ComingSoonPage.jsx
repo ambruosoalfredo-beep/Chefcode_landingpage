@@ -54,7 +54,7 @@ const ComingSoonPage = () => {
                             </li>
                             <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-blue-500 shrink-0" />
-                                <span>Automated restocking suggestions</span>
+                                <span>AI-driven demand aggregation & cost reduction</span>
                             </li>
                             <li className="flex items-center justify-center gap-3 text-slate-700 font-bold">
                                 <CheckCircle2 size={20} className="text-blue-500 shrink-0" />

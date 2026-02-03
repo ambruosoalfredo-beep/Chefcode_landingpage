@@ -205,7 +205,7 @@ const LandingPage = () => {
 
       {/* --- NAVBAR --- */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 shadow-lg py-3' : 'bg-slate-900 py-4 md:py-6'}`}>
-        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center relative">
           {/* Link logo to home */}
           <div className="flex items-center gap-2 group cursor-pointer shrink-0">
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -213,8 +213,8 @@ const LandingPage = () => {
             </Link>
           </div>
 
-          {/* MOBILE PAGE INDICATOR (Center) */}
-          <div className="md:hidden flex-1 flex justify-center items-center px-4 overflow-hidden">
+          {/* MOBILE PAGE INDICATOR (Absolute Center) */}
+          <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
             <AnimatePresence mode='wait'>
               {activeSection && activeSection !== 'hero' && (
                 <motion.div
@@ -228,9 +228,9 @@ const LandingPage = () => {
                     damping: 25,
                     backgroundColor: { duration: 0.8, ease: "easeOut" }
                   }}
-                  className="flex items-center justify-center border border-slate-700/50 px-5 py-1.5 rounded-full shadow-lg shadow-orange-500/20 backdrop-blur-md"
+                  className="flex items-center justify-center border border-slate-700/50 px-6 py-2 rounded-full shadow-lg shadow-orange-500/20 backdrop-blur-md whitespace-nowrap"
                 >
-                  <span className="text-white font-bold text-xs sm:text-sm tracking-wide truncate">
+                  <span className="text-white font-bold text-sm tracking-wide">
                     {activeSection === 'how-it-works' && 'How it Works'}
                     {activeSection === 'features' && 'Features'}
                     {activeSection === 'dr-ai' && 'Dr.AI'}
