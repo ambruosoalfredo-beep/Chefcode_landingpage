@@ -435,7 +435,7 @@ const LandingPage = () => {
             className="border-t border-slate-800/60 pt-10 max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
           >
             {[
-              { val: "6%", label: "Net Profit", desc: "Improvement", color: "text-emerald-400" },
+              { val: "+6%", label: "Net Profit", desc: "Improvement", color: "text-emerald-400" },
               { val: "20%", label: "Food Cost Saved", desc: "Average in 3 months", color: "text-orange-400" },
               { val: "10h", label: "Time/Week Saved", desc: "For Executive Chefs", color: "text-blue-400" },
             ].map((stat, i) => (
