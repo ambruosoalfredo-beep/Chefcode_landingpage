@@ -113,7 +113,8 @@ const Partners = () => {
             <section className="pt-48 pb-20 bg-slate-900 text-white text-center">
                 <div className="container mx-auto px-4">
                     <h1 className="text-4xl md:text-6xl font-black mb-6">Our Partners</h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8">Collaborating with the best to deliver excellence.</p>
+                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">Collaborating with the best to deliver excellence.</p>
+                    <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-8 mt-2">Partners supporting validation and pilot activities.</p>
 
                     {/* Partner CTA */}
                     <div className="max-w-6xl mx-auto mt-12 p-8 bg-slate-800/50 rounded-2xl border border-slate-700 flex flex-col items-center justify-center gap-6">
@@ -130,47 +131,47 @@ const Partners = () => {
 
 
 
-            {/* --- PARTNER 0: Di Marco (HIDDEN) --- */}
-            {false && (
-                <section className="py-24 bg-white border-b border-slate-100">
-                    <div className="container mx-auto px-4 md:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Strategic Partner</h2>
-                            <p className="text-slate-500 max-w-2xl mx-auto text-lg">The visionary behind the Pinsa Romana revolution.</p>
-                        </div>
 
-                        <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
-                            {partnersDiMarco.map((member, i) => (
-                                <div key={i} className="flex flex-col items-center group w-full md:w-[40%] min-w-[280px]">
-                                    <div className="relative mb-8">
-                                        <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-slate-100 shadow-xl group-hover:scale-105 transition-all duration-300 bg-slate-100">
-                                            <img src={member.img} alt={member.name} className="w-full h-full object-cover scale-125" />
-                                        </div>
-                                        {member.logo && (
-                                            <div className="absolute -bottom-5 -right-5 w-28 h-28 bg-white rounded-full border-2 border-slate-100 shadow-md flex items-center justify-center overflow-hidden z-10 group-hover:scale-110 transition-transform p-1.5">
-                                                <img src={member.logo} alt="Brand Logo" className="w-full h-full object-contain scale-150" />
-                                            </div>
-                                        )}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h3>
-                                    <div className="text-orange-600 font-bold text-sm uppercase tracking-wide mb-4">{member.role}</div>
-                                    <div className="text-slate-500 font-medium leading-relaxed mb-6">
-                                        {member.details.map((line, idx) => (
-                                            <div key={idx} className="mb-1">{line}</div>
-                                        ))}
-                                    </div>
-                                    <a href="https://www.pinsadimarco.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
-                                        Visit Official Website <ExternalLink size={16} />
-                                    </a>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            )}
 
-            {/* --- PARTNER 1: Chef Carla Teodori --- */}
+            {/* --- PARTNER: Di Marco --- */}
             <section className="py-24 bg-white border-b border-slate-100">
+                <div className="container mx-auto px-4 md:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Strategic Partner</h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto text-lg">The visionary behind the Pinsa Romana revolution.</p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-12 text-center max-w-5xl mx-auto">
+                        {partnersDiMarco.map((member, i) => (
+                            <div key={i} className="flex flex-col items-center group w-full md:w-[40%] min-w-[280px]">
+                                <div className="relative mb-8">
+                                    <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-slate-100 shadow-xl group-hover:scale-105 transition-all duration-300 bg-slate-100">
+                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover scale-125" />
+                                    </div>
+                                    {member.logo && (
+                                        <div className="absolute -bottom-5 -right-5 w-28 h-28 bg-white rounded-full border-2 border-slate-100 shadow-md flex items-center justify-center overflow-hidden z-10 group-hover:scale-110 transition-transform p-1.5">
+                                            <img src={member.logo} alt="Brand Logo" className="w-full h-full object-contain scale-150" />
+                                        </div>
+                                    )}
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-2">{member.name}</h3>
+                                <div className="text-orange-600 font-bold text-sm uppercase tracking-wide mb-4">{member.role}</div>
+                                <div className="text-slate-500 font-medium leading-relaxed mb-6">
+                                    {member.details.map((line, idx) => (
+                                        <div key={idx} className="mb-1">{line}</div>
+                                    ))}
+                                </div>
+                                <a href="https://www.pinsadimarco.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
+                                    Visit Official Website <ExternalLink size={16} />
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* --- PARTNER: Chef Carla Teodori --- */}
+            <section className="py-24 bg-slate-50 border-b border-slate-100">
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Professional Chef</h2>
@@ -196,19 +197,15 @@ const Partners = () => {
                                         <div key={idx} className="mb-1">{line}</div>
                                     ))}
                                 </div>
-                                {member.name === "Carla Teodori" && (
-                                    <a href="http://www.chefteodori.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
-                                        Visit Website <ExternalLink size={16} />
-                                    </a>
-                                )}
+
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* --- PARTNER 2: Food & Diet Goal --- */}
-            <section className="py-24 bg-slate-50 border-b border-slate-100">
+            {/* --- PARTNER: Food & Diet Goal --- */}
+            <section className="py-24 bg-white border-b border-slate-100">
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Food & Diet Goal</h2>
@@ -251,7 +248,7 @@ const Partners = () => {
             {/* --- FOOTER --- */}
             <footer className="bg-slate-950 border-t border-slate-900 pt-20 pb-10 text-sm text-slate-500">
                 <div className="container mx-auto px-4 md:px-8">
-                    <div className="grid md:grid-cols-4 gap-12 mb-16">
+                    <div className="grid md:grid-cols-3 gap-12 mb-16">
                         <div>
                             <div className="flex items-center gap-2 mb-6 text-white">
                                 <img src={logo} alt="ChefCode" className="h-24 w-auto object-contain" />
@@ -285,13 +282,7 @@ const Partners = () => {
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="text-white font-bold mb-6 text-base">Newsletter</h4>
-                            <div className="flex gap-2">
-                                <input type="email" placeholder="Email" className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-orange-500 transition-colors text-white" />
-                                <button className="bg-orange-600 text-white px-5 py-3 rounded-lg font-bold hover:bg-orange-500 transition-colors">Go</button>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div className="border-t border-slate-900 pt-10 flex flex-col md:flex-row justify-between items-center text-slate-600 font-medium">

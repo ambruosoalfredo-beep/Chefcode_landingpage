@@ -173,7 +173,7 @@ const Register = () => {
             {/* --- FOOTER --- */}
             <footer className="bg-slate-950 border-t border-slate-900 pt-20 pb-10 text-sm text-slate-500">
                 <div className="container mx-auto px-4 md:px-8">
-                    <div className="grid md:grid-cols-4 gap-12 mb-16">
+                    <div className="grid md:grid-cols-3 gap-12 mb-16">
                         <div>
                             <div className="flex items-center gap-2 mb-6 text-white">
                                 <img src={logo} alt="ChefCode" className="h-24 w-auto object-contain" />
@@ -207,13 +207,7 @@ const Register = () => {
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="text-white font-bold mb-6 text-base">Newsletter</h4>
-                            <div className="flex gap-2">
-                                <input type="email" placeholder="Email" className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-orange-500 transition-colors text-white" />
-                                <button className="bg-orange-600 text-white px-5 py-3 rounded-lg font-bold hover:bg-orange-500 transition-colors">Go</button>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div className="border-t border-slate-900 pt-10 flex flex-col md:flex-row justify-between items-center text-slate-600 font-medium">
