@@ -12,6 +12,7 @@ import fdgLogo from './assets/fdg.png';
 import { useLanguage } from './context/LanguageContext';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import carlaLogo from './assets/logocarla.png';
+import logoMaria from './assets/logo maria.png';
 
 const Partners = () => {
     const { t } = useLanguage();
@@ -30,15 +31,20 @@ const Partners = () => {
         {
             img: Immagine6,
             logo: fdgLogo,
+            logoBg: "bg-black",
             name: "Flavio Di Gregorio",
             role: t('partnersPage.fdg.flavio.role'),
-            details: t('partnersPage.fdg.flavio.details')
+            details: t('partnersPage.fdg.flavio.details'),
+            website: "https://foodanddietgoal.it/"
         },
         {
             img: Immagine7,
+            logo: logoMaria,
+            logoBg: "bg-white",
             name: "Maria Teresa Lombardi",
             role: t('partnersPage.fdg.maria.role'),
-            details: t('partnersPage.fdg.maria.details')
+            details: t('partnersPage.fdg.maria.details'),
+            website: "https://www.mariateresalombardibiologanutrizionista.it/"
         }
     ];
 
@@ -229,7 +235,7 @@ const Partners = () => {
                                         <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
                                     </div>
                                     {member.logo && (
-                                        <div className="absolute -bottom-5 -right-5 w-28 h-28 bg-black rounded-full border-2 border-slate-100 shadow-md flex items-center justify-center overflow-hidden z-10 group-hover:scale-110 transition-transform p-1.5">
+                                        <div className={`absolute -bottom-5 -right-5 w-28 h-28 ${member.logoBg || 'bg-black'} rounded-full border-2 border-slate-100 shadow-md flex items-center justify-center overflow-hidden z-10 group-hover:scale-110 transition-transform p-1.5`}>
                                             <img src={member.logo} alt="Brand Logo" className="w-full h-full object-contain scale-110" />
                                         </div>
                                     )}
@@ -241,8 +247,8 @@ const Partners = () => {
                                         <div key={idx}>{line}</div>
                                     ))}
                                 </div>
-                                {member.name === "Flavio Di Gregorio" && (
-                                    <a href="https://foodanddietgoal.it/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
+                                {member.website && (
+                                    <a href={member.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm mt-4">
                                         {t('partnersPage.fdg.website')} <ExternalLink size={16} />
                                     </a>
                                 )}
